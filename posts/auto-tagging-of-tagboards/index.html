@@ -1,0 +1,68 @@
+<!doctype html><html lang=en><meta charset=utf-8><title>Auto-tagging of TagBoards - CTO AdTech, London</title><link href=//yui.yahooapis.com/pure/0.5.0/pure-min.css rel=stylesheet><link href=http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css rel=stylesheet><link href=/stylesheet.css rel=stylesheet><link href="//fonts.googleapis.com/css?family=Merriweather:300,300italic,700" rel=stylesheet type=text/css><link href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css rel=stylesheet><script src=//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js></script><meta content="nanoc 4.0.0" name=generator><meta content="width=device-width, initial-scale=1.0" name=viewport><body onload=prettyPrint()><div id=container><div class="pure-menu pure-menu-open pure-menu-horizontal" id=navbar><a class=pure-menu-heading href=/>Pravin Paratey</a><ul class=pure-menu-list><li class=pure-menu-item><a href=/posts>Archives</a><li class=pure-menu-item><a href=https://github.com/pravin>Github</a><li class=pure-menu-item><a href=/about>About</a></ul></div><div id=blurb>Hello, I am an Engineering Manager at Facebook with 12+ years in Ad Technology, Natural Language Processing and Data mining. (<a href=/about>Learn More</a>)</div><div class=pure-g><div class="pure-u-1 pure-u-md-3-4 pure-u-sm-1" id=content><div class=pad><div class=date><time pubdate>June 26, 2004</time> <span class=author>by Pravin Paratey</span></div><article><h1>Auto-tagging of TagBoards</h1><p>This Perl snippet illustrates how one can automatically post data to http://www.tag-board.com tag boards. Learn how Perl does POST requests.<pre><code class=language-perl>#!/usr/bin/perl
+# AutoTagger-Perl v0.1a (June 26, 2004)
+# Pravin [pravinp at gmail dot com]
+# This snippet illustrates automatic tagging of
+# http://www.tag-board.com tag boards
+
+use HTTP::Request::Common;
+use LWP::UserAgent;
+
+# Enter your details here
+my $myname = 'pravin';
+my $myurl = 'http://pravin.insanitybegins.com';
+my $mymessage = 'Test Message';
+
+# Add taggy names to this list
+my @taggylist = (
+	'oh_its_dee',
+	'me_reiya',
+	'Vighy',
+	'rrighton');
+
+# Code Starts
+$ua = LWP::UserAgent-&gt;new();
+foreach (@taggylist)
+{
+	print '$_\t';
+	$ua-&gt;request(POST 'http://www.tag-board.com/add.tag',
+		[name =&gt; $_,
+		tagname =&gt; $myname,
+		tagurl =&gt;$myurl,
+		message =&gt; $mymessage]);
+	print 'done\n';
+}
+</code></pre></article></div></div><div class="pure-u-1 pure-u-md-1-4 pure-u-sm-1" id=sidebar><div class=pad><div class=share><div class=g-plusone></div></div><a name=contact></a><h3>Get in touch</h3><div style=text-align:center><a href=mailto:pravinp@gmail.com title="Email Pravin"><i class="fa fa-5x fa-envelope-o sc"></i></a> <br> <a href=/pravin_paratey.pub title="PGP public key"><i class="fa fa-key sc"></i></a> <a href=/pravin_paratey.asc title="RSA Fingerprint"><i class="fa fa-barcode sc"></i></a> <br> <a href=https://www.facebook.com/pravin.paratey title=Facebook><i class="fa fa-2x fa-facebook-square sc"></i></a> <a href=https://github.com/pravin title=Github><i class="fa fa-2x fa-github sc"></i></a> <a href=http://twitter.com/pravin title=@pravin><i class="fa fa-2x fa-twitter sc"></i></a> <a href=http://uk.linkedin.com/in/pravinp title="Linked In"><i class="fa fa-2x fa-linkedin sc"></i></a> <a href=https://www.medium.com/@pravin title=Medium><i class="fa fa-2x fa-medium sc"></i></a></div><h3>Advert</h3><div id=advert><script type=text/javascript>
+              <!--
+              google_ad_client = "ca-pub-5089148546380783";
+              /* Insanity Begins */
+              google_ad_slot = "4508934025";
+              google_ad_width = 300;
+              google_ad_height = 250;
+              //-->
+            </script> <script src=http://pagead2.googlesyndication.com/pagead/show_ads.js type=text/javascript></script></div><a name=sidebar></a><h3>Latest Articles</h3><div class="pure-menu pure-menu-open"><ul class=pure-menu-list><li class=pure-menu-item><a href=/posts/hiring-developers/>What I learnt about hiring<br> <small>During the last year, Affectv has experienced rapid growth. We have doubled the engineering team in the last 8 months. This is a compilation of some of the things I learnt about the hiring process.</small> </a><li class=pure-menu-item><a href=/posts/cookie-mapping-advertising/>Cookie Mapping in Advertising<br> <small>In this article, we will cover the process of cookie mapping (or cookie syncing) and how advertising companies use it to exchange information with websites and advertising platforms to serve relevant advertising to a user.</small> </a><li class=pure-menu-item><a href=/posts/building-url-shortener/>Building a url shortener in 10 mins<br> <small>A 10 minute guide to building your own url shortener i.e. a service that lets you shorten a long url to a shorter url that takes up less number of characters.</small> </a><li class=pure-menu-item><a href=/posts/apache-pig-tutorial/>Apache Pig Tutorial<br> <small>An unofficial Apache Pig tutorial for the beginning and intermediate user which covers the basics of Pig and moves on to the more advanced concepts.</small> </a><li class=pure-menu-item><a href=/posts/summarization/>Summarisation Demo<br> <small>Working demo of a summarization module I wrote a few years ago. This webapp lets you create summaries of large pieces of text.</small> </a><li class=pure-menu-item><a href=/posts/going-textmode/>Going Text-mode<br> <small>I spend a great deal of time working on the Terminal. Here, I list my must-have console applications for email, www browsing, and programming in Linux, Windows and Mac OSX.</small> </a><li class=pure-menu-item><a href=/posts/setting-up-replica-sets-in-mongodb/>Setting up Replica sets in MongoDB<br> <small>A 5-minute guide to setting up replica sets on MongoDB. Covers downloading, installation on various flavours of linux, editing the config file and initiating replica sets!</small> </a><li class=pure-menu-item><a href=/posts/super-quick-find-replace/>Super quick Find &amp; Replace<br> <small>This article explores a number of ways of performing a find/replace and compares the various implementations for different sizes of the find/replace list and input text.</small> </a><li class=pure-menu-item><a href=/posts/set-data-structures-and-implementation/>Set data structures &amp; Implementation<br> <small>Sets are an important concept and extremely useful in various computer science applications. We take a look at some of the ways a set data structure can be implemented.</small> </a><li class=pure-menu-item><a href=/posts/manage-wireless-networks-with-nmcli/>Manage your wireless with nmcli<br> <small>This article shows you how to use the command line tool nmcli to manage your wireless networks. If you prefer cli over gui, go ahead and take a look.</small> </a></ul></div></div></div></div><div class=pure-g><footer class="pure-u-1 pure-u-md-1 pure-u-sm-1">This page and its contents are copyright © 1998 - 2015, <a href>Pravin Paratey</a>. <a href=https://plus.google.com/u/1/116027419623187923256 rel=author>G+</a></footer> <script src=/js/prettify.js></script> <script type=text/javascript>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-263738-3', 'auto');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+
+        /* Social buttons */
+        $('img.sc').hover (
+          function () {
+            $(this).attr('src', $(this).attr('src').replace('_dark', '_active'));
+          },
+          function () {
+            $(this).attr('src', $(this).attr('src').replace('_active', '_dark'));
+          }
+        );
+
+        /* Place this tag after the last +1 button tag. */
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/plusone.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script></div><div></div></div>

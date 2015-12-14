@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Twitter Timeline Javascript - CTO AdTech, London</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="//yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="/stylesheet.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:300,300italic,700" type="text/css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+  <meta name="generator" content="nanoc 4.0.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body onload="prettyPrint()">
+  <div id="container">
+    <div id="navbar" class="pure-menu pure-menu-open pure-menu-horizontal">
+    <a href="/" class="pure-menu-heading">Pravin Paratey</a>
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item"><a href="/posts">Archives</a></li>
+      <!--<li class="pure-menu-item"><a href="/tools">Tools</a></li>-->
+      <li class="pure-menu-item"><a href="https://github.com/pravin">Github</a></li>
+      <li class="pure-menu-item"><a href="/about">About</a></li>
+    </ul>
+    </div>
+    <div id="blurb">Hello, I am an Engineering Manager at Facebook with 12+ years in
+      Ad Technology, Natural Language Processing and Data mining. (<a href="/about">Learn More</a>)</div>
+    <div class="pure-g">
+
+      <!-- CONTENT -->
+      <div id="content" class="pure-u-1 pure-u-md-3-4 pure-u-sm-1">
+        <div class="pad">
+          
+          <div class="date"><time pubdate>March 20, 2007</time> <span class="author">by Pravin Paratey</span></div>
+          
+          <article>
+            <h1>Twitter Timeline Javascript</h1>
+            
+<p>This snippet draws a bar graph that tells you your twitter posting frequency per hour in the last 24 hours.</p>
+<h2>Screenshot</h2>
+<p class="center-me"><img src="/img/posts/twitter-timeline.png" alt="Twitter timeline javascript 0.2"/></p>
+
+<h2>Instructions</h2>
+<ol>
+<li>Download <a href="/files/TwitterTimeline.js" title="download">Twitter Timeline Javascript v0.2</a> (Requires <a href="http://www.liquidx.net/plotkit/" title="PlotKit">PlotKit</a> and <a href="http://mochikit.com/" title="MochiKit">MochiKit</a>).</li>
+<li>Edit TwitterTimeline.js and change the <code>userid</code> variable to your user-id. You'll find your user-id at <a href="http://twitter.com/account/badge">http://twitter.com/account/badge</a>.</li>
+<li>You will need to include the javascript files:
+<pre class="prettyprint lang-html linenums">
+<script type="text/javascript" src="/js/MochiKit/MochiKit.js"></script>
+<script type="text/javascript" src="/js/PlotKit/Base.js"></script>
+<script type="text/javascript" src="/js/PlotKit/Layout.js"></script>
+<script type="text/javascript" src="/js/PlotKit/Canvas.js"></script>
+<script type="text/javascript" src="/js/PlotKit/SweetCanvas.js"></script>
+<script type="text/javascript" src="/js/TwitterTimeline.js"></script>
+</pre>
+</li>
+<li>Next, add the following lines where you want the Timeline to appear:
+<pre lang="html">
+<script type="text/javascript" src="/js/TwitterTimeline.js"></script>
+<div><canvas id="graph" height="200" width="400"></canvas></div>
+</pre>
+</li>
+</ol>
+
+<p>For your reference, TwitterTimeline.js:</p>
+<pre class="prettyprint lang-js linenums"><script type="text/javascript">
+---
+/*
+ * Twitter Timeline Javascript v0.2 (March 20, 2007)
+ * Pravin Paratey (http://www.dustyant.com)
+ * Andrei Virlan  (http://its.squeak.in)
+ *
+ * Released under Creative Commons Attribution 2.5 Licence
+ * http://creativecommons.org/licenses/by/2.5/
+ *
+ * Changelog:
+ * 0.2 (Mar 20, 2007) - Moved to PlotKit to draw graphs
+ * 0.1 (Feb 23, 2007) - Initial Release
+ */
+
+var userid = '754023'; // Change this value to your user-id
+
+var timelineArray = new Array();
+function drawGraph() {
+    var layout = new PlotKit.Layout("bar", {});
+    layout.addDataset("sqrt", timelineArray);
+    layout.evaluate();
+    var canvas = MochiKit.DOM.getElement("graph");
+    var plotter = new PlotKit.SweetCanvasRenderer(canvas, layout, {});
+    plotter.render();
+}
+
+function twitterCallback(obj) {
+	// Create an array to hold the 24 hours of the day
+	var hourArray = new Array(24);
+
+	// Initialize array
+	for(var i=0; i<24; i++) {
+		hourArray[i] = 0;
+	}
+
+	for (var i=0; i<obj.length; i++) {
+		// Get date
+		var created_at = new Date(obj[i].created_at);
+		if(obj[i].user.id == userid) {
+			// Increment the hour
+			hourArray[created_at.getHours()]++;
+		}
+	}
+
+	// Construct the timeline
+	for(var i=0; i<24; i++) {
+		timelineArray[i] = new Array(i, hourArray[i]);
+	}
+	MochiKit.DOM.addLoadEvent(drawGraph);
+}
+// Makes the twitter call
+document.write('<scr'+'ipt type="text/javascript"' +
+	'src="http://twitter.com/statuses/friends_timeline/' +
+	userid + '.json?callback=twitterCallback"></scr'+'ipt>');
+---
+</script></pre>
+
+          </article>
+        </div>
+      </div>
+      <!-- SIDEBAR -->
+      <div id="sidebar" class="pure-u-1 pure-u-md-1-4 pure-u-sm-1">
+        <div class="pad">
+          <div class="share"><div class="g-plusone"></div></div>
+          <a name="contact"></a>
+          <h3>Get in touch</h3>
+          <div style="text-align:center">
+            <a href="mailto:pravinp@gmail.com" title="Email Pravin"><i class="fa fa-5x fa-envelope-o sc"></i></a>
+            <br>
+            <a href="/pravin_paratey.pub" title="PGP public key"><i class="fa fa-key sc"></i></a>
+            <a href="/pravin_paratey.asc" title="RSA Fingerprint"><i class="fa fa-barcode sc"></i></a>
+            <br>
+            <a href="https://www.facebook.com/pravin.paratey" title="Facebook"><i class="fa fa-2x fa-facebook-square sc"></i></a>
+            <a href="https://github.com/pravin" title="Github"><i class="fa fa-2x fa-github sc"></i></a>
+            <a href="http://twitter.com/pravin" title="@pravin"><i class="fa fa-2x fa-twitter sc"></i></a>
+            <a href="http://uk.linkedin.com/in/pravinp" title="Linked In"><i class="fa fa-2x fa-linkedin sc"></i></a>
+            <a href="https://www.medium.com/@pravin" title="Medium"><i class="fa fa-2x fa-medium sc"></i></i></a>
+          </div>
+
+          <h3>Advert</h3>
+          <div id="advert">
+            <script type="text/javascript">
+              <!--
+              google_ad_client = "ca-pub-5089148546380783";
+              /* Insanity Begins */
+              google_ad_slot = "4508934025";
+              google_ad_width = 300;
+              google_ad_height = 250;
+              //-->
+            </script>
+            <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+          </div>
+          <a name="sidebar"></a>
+          
+          
+          <h3>Latest Articles</h3>
+          <div class="pure-menu pure-menu-open">
+            <ul class="pure-menu-list">
+              
+              <li class="pure-menu-item">
+                <a href="/posts/hiring-developers/">What I learnt about hiring<br>
+                  <small>During the last year, Affectv has experienced rapid growth. We have doubled the engineering team in the last 8 months. This is a compilation of some of the things I learnt about the hiring process.</small>
+                </a>
+              </li>
+              
+              <li class="pure-menu-item">
+                <a href="/posts/cookie-mapping-advertising/">Cookie Mapping in Advertising<br>
+                  <small>In this article, we will cover the process of cookie mapping (or cookie syncing) and how advertising companies use it to exchange information with websites and advertising platforms to serve relevant advertising to a user.</small>
+                </a>
+              </li>
+              
+              <li class="pure-menu-item">
+                <a href="/posts/building-url-shortener/">Building a url shortener in 10 mins<br>
+                  <small>A 10 minute guide to building your own url shortener i.e. a service that lets you shorten a long url to a shorter url that takes up less number of characters.</small>
+                </a>
+              </li>
+              
+              <li class="pure-menu-item">
+                <a href="/posts/apache-pig-tutorial/">Apache Pig Tutorial<br>
+                  <small>An unofficial Apache Pig tutorial for the beginning and intermediate user which covers the basics of Pig and moves on to the more advanced concepts.</small>
+                </a>
+              </li>
+              
+              <li class="pure-menu-item">
+                <a href="/posts/summarization/">Summarisation Demo<br>
+                  <small>Working demo of a summarization module I wrote a few years ago. This webapp lets you create summaries of large pieces of text.</small>
+                </a>
+              </li>
+              
+              <li class="pure-menu-item">
+                <a href="/posts/going-textmode/">Going Text-mode<br>
+                  <small>I spend a great deal of time working on the Terminal. Here, I list my must-have console applications for email, www browsing, and programming in Linux, Windows and Mac OSX.</small>
+                </a>
+              </li>
+              
+              <li class="pure-menu-item">
+                <a href="/posts/setting-up-replica-sets-in-mongodb/">Setting up Replica sets in MongoDB<br>
+                  <small>A 5-minute guide to setting up replica sets on MongoDB. Covers downloading, installation on various flavours of linux, editing the config file and initiating replica sets!</small>
+                </a>
+              </li>
+              
+              <li class="pure-menu-item">
+                <a href="/posts/super-quick-find-replace/">Super quick Find & Replace<br>
+                  <small>This article explores a number of ways of performing a find/replace and compares the various implementations for different sizes of the find/replace list and input text.</small>
+                </a>
+              </li>
+              
+              <li class="pure-menu-item">
+                <a href="/posts/set-data-structures-and-implementation/">Set data structures &amp; Implementation<br>
+                  <small>Sets are an important concept and extremely useful in various computer science applications. We take a look at some of the ways a set data structure can be implemented.</small>
+                </a>
+              </li>
+              
+              <li class="pure-menu-item">
+                <a href="/posts/manage-wireless-networks-with-nmcli/">Manage your wireless with nmcli<br>
+                  <small>This article shows you how to use the command line tool nmcli to manage your wireless networks. If you prefer cli over gui, go ahead and take a look.</small>
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+          
+        </div> <!-- pad -->
+      </div> <!-- sidebar -->
+
+    </div> <!-- pure-g -->
+    <div class="pure-g">
+      <footer class="pure-u-1 pure-u-md-1 pure-u-sm-1">
+        This page and its contents are copyright &copy; 1998 - 2015,
+        <a href="">Pravin Paratey</a>.
+        <a href="https://plus.google.com/u/1/116027419623187923256" rel="author">G+</a>
+      </footer>
+
+      <script src="/js/prettify.js"></script>
+
+      <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-263738-3', 'auto');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+
+        /* Social buttons */
+        $('img.sc').hover (
+          function () {
+            $(this).attr('src', $(this).attr('src').replace('_dark', '_active'));
+          },
+          function () {
+            $(this).attr('src', $(this).attr('src').replace('_active', '_dark'));
+          }
+        );
+
+        /* Place this tag after the last +1 button tag. */
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/plusone.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+    </div>
+  <div>
+</body>
+</html>
