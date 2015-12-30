@@ -1,5 +1,4 @@
-<!doctype html><html lang=en><meta charset=utf-8><title>Lesson 2 - Creating a basic window - CTO AdTech, London</title><link href=//yui.yahooapis.com/pure/0.5.0/pure-min.css rel=stylesheet><link href=http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css rel=stylesheet><link href=/stylesheet.css rel=stylesheet><link href="//fonts.googleapis.com/css?family=Merriweather:300,300italic,700" rel=stylesheet type=text/css><link href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css rel=stylesheet><script src=//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js></script><meta content="nanoc 4.0.0" name=generator><meta content="width=device-width, initial-scale=1.0" name=viewport><body onload=prettyPrint()><div id=container><div class="pure-menu pure-menu-open pure-menu-horizontal" id=navbar><a class=pure-menu-heading href=/>Pravin Paratey</a><ul class=pure-menu-list><li class=pure-menu-item><a href=/posts>Archives</a><li class=pure-menu-item><a href=https://github.com/pravin>Github</a><li class=pure-menu-item><a href=/about>About</a></ul></div><div id=blurb>Hello, I am an Engineering Manager at Facebook with 12+ years in Ad Technology, Natural Language Processing and Data mining. (<a href=/about>Learn More</a>)</div><div class=pure-g><div class="pure-u-1 pure-u-md-3-4 pure-u-sm-1" id=content><div class=pad><div class=date><time pubdate>May 16, 2003</time> <span class=author>by Pravin Paratey</span></div><article><h1>Lesson 2 - Creating a basic window</h1><p>In this lesson you will be introduced to the event-driven programming model. You will learn how Windows uses messages to communicate with applications, how event based programming works, what callback functions are, and while doing this create a basic windows application.</p> <center><img alt=2:1 src=/img/win32/2-1.png style=width:auto></center><h2 id=before-you-begin>Before you begin</h2><p>If you do not have the platform SDK help files (WinAPI docs), download the <a href="http://www.google.com/search?q=win32.hlp+download" title="download win32 api help">win32.hlp</a> file. Though old, it is a valuable resource. Or you can download the <a href=http://msdn.microsoft.com/downloads/ title="download platform sdk">Platform SDK</a> form msdn.<h2 id=begin>Begin</h2><p>Add the following code to <code>main.cpp</code>:<pre class="prettyprint lang-cpp linenums">
-/* DrawLite - Windows Programming Tutorial
+<!doctype html><html lang=en><meta charset=utf-8><title>Lesson 2 - Creating a basic window - CTO AdTech, London</title><link href=//yui.yahooapis.com/pure/0.5.0/pure-min.css rel=stylesheet><link href=http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css rel=stylesheet><link href=/stylesheet.css rel=stylesheet><link href="//fonts.googleapis.com/css?family=Merriweather:300,300italic,700" rel=stylesheet type=text/css><link href=//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css rel=stylesheet><script src=//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js></script><meta content="nanoc 4.0.0" name=generator><meta content="width=device-width, initial-scale=1.0" name=viewport><body onload=prettyPrint()><div id=container><div class="pure-menu pure-menu-open pure-menu-horizontal" id=navbar><a class=pure-menu-heading href=/>Pravin Paratey</a><ul class=pure-menu-list><li class=pure-menu-item><a href=/posts>Archives</a><li class=pure-menu-item><a href=https://github.com/pravin>Github</a><li class=pure-menu-item><a href=/about>About</a></ul></div><div id=blurb>Hello, I am an Engineering Manager at Facebook with 12+ years in Ad Technology, Natural Language Processing and Data mining. (<a href=/about>Learn More</a>)</div><div class=pure-g><div class="pure-u-1 pure-u-md-3-4 pure-u-sm-1" id=content><div class=pad><div class=date><time pubdate>May 16, 2003</time> <span class=author>by Pravin Paratey</span></div><article><h1>Lesson 2 - Creating a basic window</h1><p>In this lesson you will be introduced to the event-driven programming model. You will learn how Windows uses messages to communicate with applications, how event based programming works, what callback functions are, and while doing this create a basic windows application.</p> <center>![2:1" style="width:auto](/img/win32/2-1.png)</center><h2 id=before-you-begin>Before you begin</h2><p>If you do not have the platform SDK help files (WinAPI docs), download the <a href="http://www.google.com/search?q=win32.hlp+download">win32.hlp</a> file. Though old, it is a valuable resource. Or you can download the <a href=http://msdn.microsoft.com/downloads/>Platform SDK</a> form msdn.<h2 id=begin>Begin</h2><p>Add the following code to <code>main.cpp</code>:<pre class="prettyprint linenums:1"><code class=language-cpp>/* DrawLite - Windows Programming Tutorial
  * by Pravin Paratey (March 08, 2007)
  *
  * Source released under
@@ -7,7 +6,7 @@
  * http://creativecommons.org/licenses/by-nc-nd/3.0/
  */
 
-#include <windows.h>
+#include &lt;windows.h&gt;
 
 LRESULT CALLBACK MainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -74,36 +73,7 @@ LRESULT CALLBACK MainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
     }
     return 0;
 }
-
-
-Phew. That was long! Press `F9` to compile and run. You have a basic window on your screen!
-
-## Breaking it up
-
-### Event driven programming model
-
-<img align=right alt=2:5 src=/img/win32/2-5.svg>
-
-1. Each time windows has to communicate with your application, it sends messages to your application. Once all initializations have been done and the window shown on screen, all your application has to do is poll for windows messages.
-
-1. The lines up to 54 create and show the window and the lines 57-61 poll for messages.
-
-1. The `GetMessage()` function gets the next message to be processed from the message queue. `GetMessage()` returns a non-zero value for every message other than `WM_QUIT`. This means that the while loop continues until it is time to quit.
-
-1. `TranslateMessage()` translates virtual key messages to character messages.
-
-1. `DispatchMessage()` dispatches the message to a window procedure. This means that for messages coming to our window, the `MainWndProc()` is called by Windows through `DispatchMessage()`.
-
-1. How does Windows know which function to call? Well, we tell Windows during `WNDCLASSEX` initialization [line 24].
-
-### WNDCLASSEX structure
-
-Every window that you create has an associated `WNDCLASSEX` structure. The `WNDCLASSEX` structure provides all the information necessary for Windows to do perform window related functions like drawing its icon, cursor, menu, calling the callback function which will receive messages and so on.
-
-The `WNDCLASSEX` structure is defined as,
-
-<pre class="prettyprint lang-cpp">
-typedef struct _WNDCLASSEX {
+</code></pre><p>Phew. That was long! Press <code>F9</code> to compile and run. You have a basic window on your screen!<h2 id=breaking-it-up>Breaking it up</h2><h3 id=event-driven-programming-model>Event driven programming model</h3><p><img align=right alt=2:5 src=/img/win32/2-5.svg><ol><li><p>Each time windows has to communicate with your application, it sends messages to your application. Once all initializations have been done and the window shown on screen, all your application has to do is poll for windows messages.</p><li><p>The lines up to 54 create and show the window and the lines 57-61 poll for messages.</p><li><p>The <code>GetMessage()</code> function gets the next message to be processed from the message queue. <code>GetMessage()</code> returns a non-zero value for every message other than <code>WM_QUIT</code>. This means that the while loop continues until it is time to quit.</p><li><p><code>TranslateMessage()</code> translates virtual key messages to character messages.</p><li><p><code>DispatchMessage()</code> dispatches the message to a window procedure. This means that for messages coming to our window, the <code>MainWndProc()</code> is called by Windows through <code>DispatchMessage()</code>.</p><li><p>How does Windows know which function to call? Well, we tell Windows during <code>WNDCLASSEX</code> initialization [line 24].</ol><h3 id=wndclassex-structure>WNDCLASSEX structure</h3><p>Every window that you create has an associated <code>WNDCLASSEX</code> structure. The <code>WNDCLASSEX</code> structure provides all the information necessary for Windows to do perform window related functions like drawing its icon, cursor, menu, calling the callback function which will receive messages and so on.<p>The <code>WNDCLASSEX</code> structure is defined as,<pre><code class=language-cpp>typedef struct _WNDCLASSEX {
     UINT    cbSize;     // This must always be set to sizeof(WNDCLASSEX)
     UINT    style;  // This specifies the class styles. Take a look at
             // your SDK documentation for the values this member can take.
@@ -118,16 +88,7 @@ typedef struct _WNDCLASSEX {
     LPCTSTR lpszClassName; // Pointer to a NULL terminated string or an atom specifying the class of this structure.
     HICON   hIconSm; // Handle to the small icon associated with this class.
 } WNDCLASSEX;
-</pre>
-
-### Registering your window class
-After you've created your window class, you need to tell Windows about it. This is done by registering the class with windows. The function call is <code>RegisterClassEx(..)</code>. Once this is done, you can create instances of this window by calling `CreateWindowEx(..)` with the proper arguments.
-
-### Creating the window
-
-A window is created by calling the `CreateWindowEx(..)` defined as,
-<pre class="prettyprint lang-cpp">
-HWND CreateWindowEx(
+</code></pre><h3 id=registering-your-window-class>Registering your window class</h3><p>After you’ve created your window class, you need to tell Windows about it. This is done by registering the class with windows. The function call is <code>RegisterClassEx(..)</code>. Once this is done, you can create instances of this window by calling <code>CreateWindowEx(..)</code> with the proper arguments.<h3 id=creating-the-window>Creating the window</h3><p>A window is created by calling the <code>CreateWindowEx(..)</code> defined as,<pre><code class=language-cpp>HWND CreateWindowEx(
     DWORD dwExStyle,        // extended window style
     LPCTSTR lpClassName,    // pointer to registered class name
     LPCTSTR lpWindowName,   // pointer to window name
@@ -141,88 +102,36 @@ HWND CreateWindowEx(
     HINSTANCE hInstance,    // handle to application instance
     LPVOID lpParam          // pointer to window-creation data
    );
-</pre>
-
-Lines 39-48 create the window. If the creation was successful a non-zero handle is returned by `CreateWindowEx` after which <code>ShowWindow()</code> shows the window on the screen.
-
-<div class=tip>
-    <h3>Tip: Refer to your documentation</h3>
-    It is a good idea to keep referring to these functions in your SDK docs while reading this tutorial.
-    <center><img alt=2:2 src=/img/win32/2-2.png style=width:auto></center>
-</div>
-
-<h3>Callback functions</h3>
-A callback function is the one that receives the messages sent to your application. This is where you do something about the message. We provide a pointer to this function while defining the window class [line 18].
-
-Callback functions have to be defined as,
-
-<pre class="prettyprint lang-cpp">
+</code></pre><p>Lines 39-48 create the window. If the creation was successful a non-zero handle is returned by <code>CreateWindowEx</code> after which <code>ShowWindow()</code> shows the window on the screen.<div class=tip><h3>Tip: Refer to your documentation</h3> It is a good idea to keep referring to these functions in your SDK docs while reading this tutorial. <center>![2:2](/img/win32/2-2.png)</center></div><h3>Callback functions</h3><p>A callback function is the one that receives the messages sent to your application. This is where you do something about the message. We provide a pointer to this function while defining the window class [line 18].<p>Callback functions have to be defined as,<pre class="prettyprint lang-cpp">
 LRESULT CALLBACK function-name(
     HWND hwnd,  // Handle of window which received this message
     UINT msg,   // The message
     WPARAM wParam,  // Extra information
     LPARAM lParam   // Extra information
     );
-</pre>
-
-<dl>
-<dt>HWND hwnd</dt>
-    <dd>The handle of the window is specified so that you know which window to act upon. This is necessary because you may have created more than one instance of the window.<dt>UINT msg</dt>
-    <dd>This contains the message sent.<dt>WPARAM wParam and WPARAM lParam</dt>
-    <dd>wParam and lParam are used to pass extra info about the message. For example a WM_LBUTTONDOWN (left mouse button down) message will have the x and y co-ordinates as the upper and lower word of lParam and wParam will tell if any modifier keys (ctrl, alt, shift) have been pressed.</dl>
-
-<h4>MainWndProc</h4>
-<pre class="prettyprint lang-cpp linenums:66">
+</pre><dl><dt>HWND hwnd<dd>The handle of the window is specified so that you know which window to act upon. This is necessary because you may have created more than one instance of the window.<dt>UINT msg<dd>This contains the message sent.<dt>WPARAM wParam and WPARAM lParam<dd>wParam and lParam are used to pass extra info about the message. For example a WM_LBUTTONDOWN (left mouse button down) message will have the x and y co-ordinates as the upper and lower word of lParam and wParam will tell if any modifier keys (ctrl, alt, shift) have been pressed.</dl><h4>MainWndProc</h4> <pre class="prettyprint lang-cpp linenums:66">
 LRESULT CALLBACK MainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     switch (msg)
     {
     ...
-</pre>
-
-The switch statement lets us select which message was sent. There are over 200 messages that windows can send your application. To read about them, just search for <code>WM_</code> in your SDK docs.
-
-<center><img alt=2:3 src=/img/win32/2-3.png style=width:auto></center>
-
-<h5>WM_DESTROY</h5>
-
-<pre class="prettyprint lang-cpp linenums:69">
+</pre><p>The switch statement lets us select which message was sent. There are over 200 messages that windows can send your application. To read about them, just search for <code>WM_</code> in your SDK docs.</p> <center>![2:3](/img/win32/2-3.png" style="width:auto)</center><h5>WM_DESTROY</h5> <pre class="prettyprint lang-cpp linenums:69">
 ...
     case WM_DESTROY: // User closed the window
         PostQuitMessage(0);
         break;
 ...
-</pre>
-The <code>WM_DESTROY</code> message is sent to your application when the user teminates the application either by clicking the X at the upper right corner, pressing Alt+F4, or quits the application by other means.
-
-`PostQuitMessage()` causes `GetMessage(..)` [line 57] to return false and thus breaking out of the while loop and exiting the application. The argument to `PostQuitMessage` is the return value to the system.
-
-<h5>DefWindowProc(..)</h5>
-
-What about the other 200 or so messages? Surely you, the programmer, aren't going to write code for all the 200 messages. Fortunately, Windows provides the <code>DefWindowProc(..)</code> function which handles all the messages. For the purposes of displaying a simple window, your MainWndProc could very well have consisted of, 
-
-<pre class="prettyprint lang-cpp linenums">
+</pre><p>The <code>WM_DESTROY</code> message is sent to your application when the user teminates the application either by clicking the X at the upper right corner, pressing Alt+F4, or quits the application by other means.<p><code>PostQuitMessage()</code> causes <code>GetMessage(..)</code> [line 57] to return false and thus breaking out of the while loop and exiting the application. The argument to <code>PostQuitMessage</code> is the return value to the system.<h5>DefWindowProc(..)</h5><p>What about the other 200 or so messages? Surely you, the programmer, aren’t going to write code for all the 200 messages. Fortunately, Windows provides the <code>DefWindowProc(..)</code> function which handles all the messages. For the purposes of displaying a simple window, your MainWndProc could very well have consisted of,<pre class="prettyprint lang-cpp linenums">
 LRESULT CALLBACK MainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     return DefWindowProc(hwnd, msg, wParam, lParam);
 }
-</pre>
-
-What this means is that every time you want to do something about a message, add the case switch for the message and write the code which does something about it. All messages that you don't want to handle should be passed to the <code>DefWindowProc()</code>. This is what we have done in our code.
-
-<pre class="prettyprint lang-cpp linenums:72">
+</pre><p>What this means is that every time you want to do something about a message, add the case switch for the message and write the code which does something about it. All messages that you don’t want to handle should be passed to the <code>DefWindowProc()</code>. This is what we have done in our code.<pre class="prettyprint lang-cpp linenums:72">
 ...
     default: // Call the default window handler
         return DefWindowProc(hwnd,msg,wParam,lParam);
 ...
-</pre>
-
-## C++ is about classes
-
-Before we go any further, let's organize that code into a classes. This helps us manage our code better. Add a new file to the project and name it `MainWindow.h`. Add the following code to it:
-
-<pre class="prettyprint lang-cpp linenums">
-/* DrawLite - Windows Programming Tutorial
+</pre><h2 id=c-is-about-classes> C++ is about classes</h2><p>Before we go any further, let’s organize that code into classes. This helps us manage our code better. Add a new file to the project and name it <code>MainWindow.h</code>. Add the following code to it:<pre class="prettyprint linenums:1"><code class=language-cpp>/* DrawLite - Windows Programming Tutorial
  * by Pravin Paratey (March 08, 2007)
  *
  * Source released under
@@ -230,7 +139,7 @@ Before we go any further, let's organize that code into a classes. This helps us
  * http://creativecommons.org/licenses/by-nc-nd/3.0/
  */
 
-#include <windows.h>
+#include &lt;windows.h&gt;
 
 class MainWindow
 {
@@ -246,11 +155,7 @@ private:
     HWND m_hwnd;
     static char m_szClassName[];
 };
-
-
-Next, add another file called `MainWindow.cpp` with the following code:
-
-<pre class="prettyprint lang-cpp linenums">
+</code></pre><p>Next, add another file called <code>MainWindow.cpp</code> with the following code:<pre class="prettyprint lang-cpp linenums">
 /* DrawLite - Windows Programming Tutorial
  * by Pravin Paratey (March 08, 2007)
  *
@@ -390,7 +295,7 @@ Add this code to `MainWindow.cpp` at line 44
 
 Press F9. This is what you should see when you click anywhere inside the window.
 
-<center><img alt=2:3 src=/img/win32/2-4.png style=width:auto></center>
+<center>![2-4](/img/win32/2-4.png)</center>
 
 <div class=exercise>
     <h3>Exercise</h3>
@@ -403,7 +308,7 @@ Don't worry if you could not do the exercise or if things are still a bit hazy. 
 
 - [Previous Lesson](/posts/win32-lesson1)
 - [Next Lesson](/posts/win32-lesson3)
-</windows.h></pre></windows.h></pre></windows.h></pre></windows.h></pre></article></div></div><div class="pure-u-1 pure-u-md-1-4 pure-u-sm-1" id=sidebar><div class=pad><div class=share><div class=g-plusone></div></div><a name=contact></a><h3>Get in touch</h3><div style=text-align:center><a href=mailto:pravinp@gmail.com title="Email Pravin"><i class="fa fa-5x fa-envelope-o sc"></i></a> <br> <a href=/pravin_paratey.pub title="PGP public key"><i class="fa fa-key sc"></i></a> <a href=/pravin_paratey.asc title="RSA Fingerprint"><i class="fa fa-barcode sc"></i></a> <br> <a href=https://www.facebook.com/pravin.paratey title=Facebook><i class="fa fa-2x fa-facebook-square sc"></i></a> <a href=https://github.com/pravin title=Github><i class="fa fa-2x fa-github sc"></i></a> <a href=http://twitter.com/pravin title=@pravin><i class="fa fa-2x fa-twitter sc"></i></a> <a href=http://uk.linkedin.com/in/pravinp title="Linked In"><i class="fa fa-2x fa-linkedin sc"></i></a> <a href=https://www.medium.com/@pravin title=Medium><i class="fa fa-2x fa-medium sc"></i></a></div><h3>Advert</h3><div id=advert><script type=text/javascript>
+</windows.h></pre></windows.h></pre></article></div></div><div class="pure-u-1 pure-u-md-1-4 pure-u-sm-1" id=sidebar><div class=pad><div class=share><div class=g-plusone></div></div><a name=contact></a><h3>Get in touch</h3><div style=text-align:center><a href=mailto:pravinp@gmail.com title="Email Pravin"><i class="fa fa-5x fa-envelope-o sc"></i></a> <br> <a href=/pravin_paratey.pub title="PGP public key"><i class="fa fa-key sc"></i></a> <a href=/pravin_paratey.asc title="RSA Fingerprint"><i class="fa fa-barcode sc"></i></a> <br> <a href=https://www.facebook.com/pravin.paratey title=Facebook><i class="fa fa-2x fa-facebook-square sc"></i></a> <a href=https://github.com/pravin title=Github><i class="fa fa-2x fa-github sc"></i></a> <a href=http://twitter.com/pravin title=@pravin><i class="fa fa-2x fa-twitter sc"></i></a> <a href=http://uk.linkedin.com/in/pravinp title="Linked In"><i class="fa fa-2x fa-linkedin sc"></i></a> <a href=https://www.medium.com/@pravin title=Medium><i class="fa fa-2x fa-medium sc"></i></a></div><h3>Advert</h3><div id=advert><script type=text/javascript>
               <!--
               google_ad_client = "ca-pub-5089148546380783";
               /* Insanity Begins */
@@ -411,15 +316,14 @@ Don't worry if you could not do the exercise or if things are still a bit hazy. 
               google_ad_width = 300;
               google_ad_height = 250;
               //-->
-            </script> <script src=http://pagead2.googlesyndication.com/pagead/show_ads.js type=text/javascript></script></div><a name=sidebar></a><h3>Latest Articles</h3><div class="pure-menu pure-menu-open"><ul class=pure-menu-list><li class=pure-menu-item><a href=/posts/hiring-developers/>What I learnt about hiring<br> <small>During the last year, Affectv has experienced rapid growth. We have doubled the engineering team in the last 8 months. This is a compilation of some of the things I learnt about the hiring process.</small> </a><li class=pure-menu-item><a href=/posts/cookie-mapping-advertising/>Cookie Mapping in Advertising<br> <small>In this article, we will cover the process of cookie mapping (or cookie syncing) and how advertising companies use it to exchange information with websites and advertising platforms to serve relevant advertising to a user.</small> </a><li class=pure-menu-item><a href=/posts/building-url-shortener/>Building a url shortener in 10 mins<br> <small>A 10 minute guide to building your own url shortener i.e. a service that lets you shorten a long url to a shorter url that takes up less number of characters.</small> </a><li class=pure-menu-item><a href=/posts/apache-pig-tutorial/>Apache Pig Tutorial<br> <small>An unofficial Apache Pig tutorial for the beginning and intermediate user which covers the basics of Pig and moves on to the more advanced concepts.</small> </a><li class=pure-menu-item><a href=/posts/summarization/>Summarisation Demo<br> <small>Working demo of a summarization module I wrote a few years ago. This webapp lets you create summaries of large pieces of text.</small> </a><li class=pure-menu-item><a href=/posts/going-textmode/>Going Text-mode<br> <small>I spend a great deal of time working on the Terminal. Here, I list my must-have console applications for email, www browsing, and programming in Linux, Windows and Mac OSX.</small> </a><li class=pure-menu-item><a href=/posts/setting-up-replica-sets-in-mongodb/>Setting up Replica sets in MongoDB<br> <small>A 5-minute guide to setting up replica sets on MongoDB. Covers downloading, installation on various flavours of linux, editing the config file and initiating replica sets!</small> </a><li class=pure-menu-item><a href=/posts/super-quick-find-replace/>Super quick Find &amp; Replace<br> <small>This article explores a number of ways of performing a find/replace and compares the various implementations for different sizes of the find/replace list and input text.</small> </a><li class=pure-menu-item><a href=/posts/set-data-structures-and-implementation/>Set data structures &amp; Implementation<br> <small>Sets are an important concept and extremely useful in various computer science applications. We take a look at some of the ways a set data structure can be implemented.</small> </a><li class=pure-menu-item><a href=/posts/manage-wireless-networks-with-nmcli/>Manage your wireless with nmcli<br> <small>This article shows you how to use the command line tool nmcli to manage your wireless networks. If you prefer cli over gui, go ahead and take a look.</small> </a></ul></div></div></div></div><div class=pure-g><footer class="pure-u-1 pure-u-md-1 pure-u-sm-1">This page and its contents are copyright © 1998 - 2015, <a href>Pravin Paratey</a>. <a href=https://plus.google.com/u/1/116027419623187923256 rel=author>G+</a></footer> <script src=/js/prettify.js></script> <script type=text/javascript>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            </script> <script src=http://pagead2.googlesyndication.com/pagead/show_ads.js type=text/javascript></script></div><a name=sidebar></a><h3>Latest Articles</h3><div class="pure-menu pure-menu-open"><ul class=pure-menu-list><li class=pure-menu-item><a href=/posts/53-what-i-look-for-in-my-hires/>What I look for in my hires<br> <small>In here, I discuss the 7 qualities I look for in my hires - Predictability, Empathy, Autonomy, Adaptability, Growth potential, Ownership and Problem solving.</small> </a><li class=pure-menu-item><a href=/posts/hiring-developers/>What I learnt about hiring<br> <small>During the last year, Affectv has experienced rapid growth. We have doubled the engineering team in the last 8 months. This is a compilation of some of the things I learnt about the hiring process.</small> </a><li class=pure-menu-item><a href=/posts/cookie-mapping-advertising/>Cookie Mapping in Advertising<br> <small>In this article, we will cover the process of cookie mapping (or cookie syncing) and how advertising companies use it to exchange information with websites and advertising platforms to serve relevant advertising to a user.</small> </a><li class=pure-menu-item><a href=/posts/building-url-shortener/>Building a url shortener in 10 mins<br> <small>A 10 minute guide to building your own url shortener i.e. a service that lets you shorten a long url to a shorter url that takes up less number of characters.</small> </a><li class=pure-menu-item><a href=/posts/apache-pig-tutorial/>Apache Pig Tutorial<br> <small>An unofficial Apache Pig tutorial for the beginning and intermediate user which covers the basics of Pig and moves on to the more advanced concepts.</small> </a><li class=pure-menu-item><a href=/posts/summarization/>Summarisation Demo<br> <small>Working demo of a summarization module I wrote a few years ago. This webapp lets you create summaries of large pieces of text.</small> </a><li class=pure-menu-item><a href=/posts/going-textmode/>Going Text-mode<br> <small>I spend a great deal of time working on the Terminal. Here, I list my must-have console applications for email, www browsing, and programming in Linux, Windows and Mac OSX.</small> </a><li class=pure-menu-item><a href=/posts/setting-up-replica-sets-in-mongodb/>Setting up Replica sets in MongoDB<br> <small>A 5-minute guide to setting up replica sets on MongoDB. Covers downloading, installation on various flavours of linux, editing the config file and initiating replica sets!</small> </a><li class=pure-menu-item><a href=/posts/super-quick-find-replace/>Super quick Find &amp; Replace<br> <small>This article explores a number of ways of performing a find/replace and compares the various implementations for different sizes of the find/replace list and input text.</small> </a><li class=pure-menu-item><a href=/posts/set-data-structures-and-implementation/>Set data structures &amp; Implementation<br> <small>Sets are an important concept and extremely useful in various computer science applications. We take a look at some of the ways a set data structure can be implemented.</small> </a></ul></div></div></div></div><div class=pure-g><footer class="pure-u-1 pure-u-md-1 pure-u-sm-1">This page and its contents are copyright © 1998 - 2015, <a href>Pravin Paratey</a>. <a href=https://plus.google.com/u/1/116027419623187923256 rel=author>G+</a></footer> <script src=/js/prettify.js></script> <script type=text/javascript>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-263738-3', 'auto');
-        ga('require', 'displayfeatures');
-        ga('send', 'pageview');
+	    ga('create', 'UA-263738-3', 'auto');
+	    ga('send', 'pageview');
 
         /* Social buttons */
         $('img.sc').hover (
