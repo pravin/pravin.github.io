@@ -346,7 +346,7 @@ sup {
 }
 
 blockquote {
-	border-left: solid 4px;
+	color: #30363d;
 	font-style: italic;
 	margin: 0 0 2rem 0;
 	padding: 0.5rem 0 0.5rem 2rem;
