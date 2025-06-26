@@ -1,217 +1,1255 @@
-<!DOCTYPE HTML>
-<!--
-	Story by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravin Paratey - AI-Powered CTO & Engineering Leadership Coach</title>
+    <link rel="icon" type="image/svg" href="favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0a0a0f;
+            --secondary-color: #1a1a2e;
+            --accent-color: #6366f1;
+            --highlight-color: #8b5cf6;
+            --success-color: #10b981;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-accent: #c084fc;
+            --background-primary: #0a0a0f;
+            --background-secondary: #111118;
+            --background-accent: #1f1f28;
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+            --gradient-accent: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-hero: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #2d1b69 100%);
+            --glow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
 
-	<head>
-		<title>Pravin Paratey : Fractional CTO | CTO Coach | Angel Investor</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript>
-			<link rel="stylesheet" href="assets/css/noscript.css" />
-		</noscript>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-	</head>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-	<body class="is-preload">
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-		<!-- Wrapper -->
-		<div id="wrapper" class="divided">
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-			<!-- One -->
-			<section
-				class="banner style3 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-				<div class="content">
-					<h1>Pravin Paratey</h1>
-					<p class="major">
-						Hello there! I'm the CTO &amp; co-founder @ <a href="https://kaizan.ai">Kaizan</a>. I
-						have worked at 6 startups, co-founding 3, with 4 exits so far.<br>
-					</p>
+        /* Floating particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-					<p class="major">
-						In my spare time, I help businesses <b>solve</b> hard problems,
-						<b>coach</b> engineering
-						leaders and <b>invest</b> in interesting startups.
-					</p>
-					<ul class="actions stacked">
-						<li><a href="#first" class="button big wide smooth-scroll-middle">Continue</a></li>
-					</ul>
-				</div>
-				<div class="image">
-					<img src="images/Prav.jpg" alt="" />
-				</div>
-			</section>
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--text-accent);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+        }
 
-			<!-- Two -->
-			<section
-				class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in"
-				id="first">
-				<div class="content">
-					<h2>Fractional CTO</h2>
-					<p>Are you currently faced with a daunting technical, product or people challenge? Have you asked
-						yourself any of the following questions recently?</p>
-					<table>
-						<tr>
-							<th>Product</th>
-							<th>Technical</th>
-							<th>People</th>
-						</tr>
-						<tr>
-							<td>
-								<ul class="alt">
-									<li>How do I quickly get to product market fit?</li>
-									<li>Am I building the right thing? What do I build next?</li>
-								</ul>
-							</td>
-							<td>
-								<ul class="alt">
-									<li>How do I reduce product or technical uncertainty?</li>
-									<li>How do I build more predictability in my roadmap?</li>
-								</ul>
-							</td>
-							<td>
-								<ul class="alt">
-									<li>How do I structure my team for growth?</li>
-									<li>How do I build my team? Whom should I hire?</li>
-								</ul>
-							</td>
-						</tr>
-					</table>
-					</p>
-					<p>After two decades building businesses and tech teams, the odds are that I've been through a
-						similar challenge and could offer a thought or two.</p>
-					<ul class="actions">
-						<li><a href="https://medium.com/engineering-management" class="button" target="_blank">Learn
-								More</a></li>
-						<li><a href="https://calendly.com/prav-kaizan/30min" class="button primary" target="_blank">Book
-								a Meeting</a>
-						</li>
-					</ul>
-				</div>
-				<div class="image">
-					<img src="images/spotlight01.jpg" alt="" />
-				</div>
-			</section>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
 
-			<!-- Three -->
-			<section
-				class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-				<div class="content">
-					<h2>Coaching Engineering Leaders</h2>
-					<blockquote>Management is creating diffs with people instead of code, where the PR lands some time
-						into the future.</blockquote>
-					<p>
-						The jump from writing code to leading people isn't an easy one. How do you build and motivate
-						engineering teams? How do you manage stakeholders and relationships to create win-win scenarios?
-						And finally, how do you measure your own success?
-					</p>
-					<p>
-						I made that jump a decade ago. It was hard, but fortunately I had some amazing mentors along the
-						way. I learnt a lot (and I'm still learning), and have been lucky to pay it forward and
-						help a few people.
-					</p>
-					<ul class="actions stacked">
-						<li><a href="https://calendly.com/prav-kaizan/30min" class="button primary" target="_blank">Set
-								up a coaching session</a></li>
-					</ul>
-				</div>
-				<div class="image">
-					<img src="images/spotlight02.jpg" alt="" />
-				</div>
-			</section>
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
+        }
 
-			<!-- Four -->
-			<section
-				class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-				<div class="content">
-					<h2>Angel Investing</h2>
-					<p>I invest in British and Indian startups working in deep tech with a particular focus on
-						<strong>artificial intelligence</strong> and <strong>natural language processing</strong>. I
-						invest primarily through syndicates
-						and bring along industry experts who not only provide cash but technical knowhow and their
-						network.
-					</p>
-					<ul class="actions">
-						<li><a href="#" class="button">My investment thesis</a></li>
-						<li><a href="mailto:pravin@paratey.com" class="button primary">Get in touch</a></li>
-					</ul>
-				</div>
-				<div class="image">
-					<img src="images/spotlight03.jpg" alt="" />
-				</div>
-			</section>
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-			<!-- Five -->
-			<section class="wrapper style2 align-center">
-				<div class="inner">
-					<h2>Elsewhere on the web</h2>
-					<p>You can find me on the following sites where I usually write or talk about Engineering and
-						Management.</p>
-				</div>
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-				<div class="items style1 small">
-					<section>
-						<h3>
-							<a href="https://github.com/pravin" target="_blank">
-								<span class="icon major brands fa-github"></span> Github
-							</a>
-						</h3>
-					</section>
-					<section>
-						<h3>
-							<a href="https://medium.com/@pravin" target="_blank">
-								<span class="icon major brands fa-medium-m"></span> Medium
-							</a>
-						</h3>
-					</section>
-					<section>
-						<h3>
-							<a href="https://linkedin.com/in/pravinp" target="_blank">
-								<span class="icon major brands fa-linkedin-in"></span> LinkedIn
-							</a>
-						</h3>
-					</section>
-					<section>
-						<h3>
-							<a href="mailto:pravin@paratey.com" target="_blank">
-								<span class="icon major fa-envelope"></span> Email
-							</a>
-						</h3>
-					</section>
-				</div>
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
 
-			</section>
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-accent);
+            margin-bottom: 30px;
+            font-weight: 500;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.7;
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .stat {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            counter-set: stat 0;
+            animation: countUp 2s ease-out 1s both;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            animation: slideInUp 1s ease-out 0.8s both;
+        }
+
+        .primary-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .primary-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .primary-btn:hover::before {
+            left: 100%;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
+        }
+
+        .secondary-btn {
+            color: var(--text-accent);
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--text-accent);
+            padding: 16px 30px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .secondary-btn:hover {
+            background: var(--text-accent);
+            color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(192, 132, 252, 0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .profile-card {
+            background: rgba(17, 17, 24, 0.8);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.2);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            border: 4px solid var(--text-accent);
+            transition: all 0.3s ease;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.7;
+        }
 
 
+        .profile-card:hover .profile-image {
+            border-color: var(--highlight-color);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+            opacity: 1;
+        }
 
+        .profile-title {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
 
-			<!-- Footer -->
-			<footer class="wrapper style1 align-center">
-				<div class="inner">
-					<p>&copy; Pravin Paratey. All rights reserved.<br>
-						<small>Based on design by <a href="https://html5up.net">HTML5 UP</a></small>
-					</p>
-				</div>
-			</footer>
+        .profile-company {
+            text-align: center;
+            color: var(--text-accent);
+            font-weight: 500;
+        }
 
-		</div>
+        /* Services Section */
+        .services {
+            padding: 120px 0;
+            background: var(--background-secondary);
+            position: relative;
+        }
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
 
-	</body>
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
 
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--background-accent);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::after {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+            box-shadow: var(--glow);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .service-card:hover .service-features li {
+            color: var(--text-primary);
+        }
+
+        /* AI Expertise Section */
+        .ai-expertise {
+            padding: 120px 0;
+            background: var(--background-primary);
+            position: relative;
+        }
+
+        .expertise-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .expertise-text h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 24px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .expertise-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        .tech-item {
+            background: var(--background-secondary);
+            padding: 20px 16px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+            transition: left 0.3s ease;
+        }
+
+        .tech-item:hover::before {
+            left: 0;
+        }
+
+        .tech-item:hover {
+            border-color: var(--text-accent);
+            transform: translateY(-5px);
+            color: var(--text-primary);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 0;
+            background: var(--background-secondary);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--background-accent);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 60px;
+            color: var(--text-accent);
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 24px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: var(--gradient-hero);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1), transparent);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .cta-description {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 0 40px;
+            background: var(--background-primary);
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3 {
+            color: var(--text-accent);
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .footer-about p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--text-accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--background-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .social-links a:hover {
+            background: var(--text-accent);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(192, 132, 252, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
+            color: var(--text-secondary);
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .expertise-text h2 {
+                font-size: 2.2rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-stats {
+                justify-content: center;
+                gap: 30px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .tech-stack {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Pravin Paratey",
+            "url": "https://cto.me.uk",
+            "jobTitle": ["CTO", "Engineering Leadership Coach", "Angel Investor"],
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Kaizan"
+            },
+            "sameAs": [
+                "https://medium.com/@pravin",
+                "https://linkedin.com/in/pravinp",
+                "https://x.com/pravin",
+                "https://github.com/pravin"
+            ]
+        }
+    </script>
+</head>
+<body>
+    <!-- Floating particles -->
+    <div class="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">Pravin Paratey</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#expertise">AI Expertise</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="https://calendly.com/prav-kaizan/30min" class="cta-button" target="_blank">Book a Call</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform Teams with AI-First Leadership</h1>
+                    <p class="hero-subtitle">Fractional CTO & Engineering Leadership Coach</p>
+                    <p class="hero-description">
+                        Scale your engineering organization 10x in 24 months through proven AI strategies and leadership frameworks. With 20+ years in AI/NLP and 4 successful exits, I turn ambitious visions into executable roadmaps.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-target="20">0</span>
+                            <span class="stat-label">Years AI/NLP</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="4">0</span>
+                            <span class="stat-label">Successful Exits</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="10">0</span>
+                            <span class="stat-label">Team Growth</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta">
+                        <a href="https://calendly.com/prav-kaizan/30min" class="primary-btn" target="_blank">
+                            🚀 Get Your AI Roadmap
+                        </a>
+                        <a href="#services" class="secondary-btn">Explore Services</a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <img src="images/Prav.jpg" alt="Pravin Paratey" class="profile-image">
+                        <h3 class="profile-title">CTO & Co-founder</h3>
+                        <p class="profile-company">Kaizan.ai</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Accelerate Your Growth</h2>
+                <p class="section-subtitle">
+                    From startup chaos to enterprise excellence. I've navigated this journey 4 times and know exactly where the opportunities and pitfalls lie.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">🎯</div>
+                    <h3 class="service-title">Fractional CTO Services</h3>
+                    <p class="service-description">
+                        Get senior technical leadership without the full-time commitment. Perfect for startups and scale-ups needing strategic technical direction.
+                    </p>
+                    <ul class="service-features">
+                        <li>AI-first technology strategy & roadmaps</li>
+                        <li>Scalable architecture & technical debt elimination</li>
+                        <li>Investor-ready technical communications</li>
+                        <li>Team scaling & elite talent acquisition</li>
+                        <li>Exit preparation & due diligence support</li>
+                    </ul>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">🚀</div>
+                    <h3 class="service-title">Engineering Leadership Coaching</h3>
+                    <p class="service-description">
+                        Transform your engineering managers into exceptional leaders who inspire peak performance and drive breakthrough results.
+                    </p>
+                    <ul class="service-features">
+                        <li>Executive presence & strategic thinking</li>
+                        <li>High-performance team building & culture</li>
+                        <li>Data-driven performance management</li>
+                        <li>Cross-functional stakeholder influence</li>
+                        <li>Leadership pipeline development</li>
+                    </ul>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">🤖</div>
+                    <h3 class="service-title">AI Transformation</h3>
+                    <p class="service-description">
+                        Build AI capabilities that create sustainable competitive advantages. Based on 20 years of real-world AI implementation experience.
+                    </p>
+                    <ul class="service-features">
+                        <li>AI strategy & competitive moat development</li>
+                        <li>Team AI literacy & capability building</li>
+                        <li>Production-ready AI system architecture</li>
+                        <li>ROI measurement & optimization frameworks</li>
+                        <li>AI governance & risk management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Expertise Section -->
+    <section id="expertise" class="ai-expertise">
+        <div class="container">
+            <div class="expertise-content">
+                <div class="expertise-text reveal">
+                    <h2>20 Years of AI Innovation</h2>
+                    <p class="expertise-description">
+                        I've been building production AI systems since before transformers existed. From early search engines to modern LLMs, I've witnessed every evolution and know what actually delivers business value.
+                    </p>
+                    <p class="expertise-description">
+                        Currently as CTO of Kaizan, I'm building AI platforms that process millions of customer interactions to drive measurable business outcomes. This isn't theory — it's proven AI at enterprise scale.
+                    </p>
+                    <a href="https://calendly.com/prav-kaizan/30min" class="primary-btn" target="_blank">
+                        Discuss Your AI Strategy
+                    </a>
+                </div>
+
+                <div class="tech-stack reveal">
+                    <div class="tech-item">GPT-4</div>
+                    <div class="tech-item">Claude API</div>
+                    <div class="tech-item">LLaMA</div>
+                    <div class="tech-item">Mistral</div>
+                    <div class="tech-item">Fine-tuning</div>
+                    <div class="tech-item">RAG</div>
+                    <div class="tech-item">Embeddings</div>
+                    <div class="tech-item">LangChain</div>
+                    <div class="tech-item">Pinecone</div>
+                    <div class="tech-item">Weaviate</div>
+                    <div class="tech-item">Hugging Face</div>
+                    <div class="tech-item">MLOps</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Leadership That Delivers</h2>
+                <p class="section-subtitle">
+                    Real transformations from leaders who've accelerated their teams and achieved breakthrough results.
+                </p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">
+                        "Pravin transformed our entire approach to AI. His frameworks helped us scale from 5 to 50 engineers while implementing AI throughout our product. Revenue grew 300% in 18 months."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>CEO, TechFlow Solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">
+                        "The leadership coaching was game-changing. Pravin's methods for building high-performance teams and strategic thinking elevated my entire management approach. Our team velocity doubled."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Marcus Rodriguez</h4>
+                            <p>VP Engineering, DataCorp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-text">
+                        "Pravin's fractional CTO guidance was instrumental in our Series A success. His technical strategy and AI roadmap impressed investors and positioned us as industry leaders."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EW</div>
+                        <div class="author-info">
+                            <h4>Emily Watson</h4>
+                            <p>Founder, AI Innovations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Ready to Transform Your Team?</h2>
+                <p class="cta-description">
+                    Join the leaders who've 10x'd their engineering organizations with proven AI strategies. Let's create your transformation roadmap in a free 30-minute strategy session.
+                </p>
+                <a href="https://calendly.com/prav-kaizan/30min" class="primary-btn" target="_blank">
+                    📅 Claim Your Free Strategy Session
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Pravin Paratey</h3>
+                    <p>
+                        Transforming engineering leaders and organizations through AI-powered strategies. 20 years of proven experience building teams, products, and successful exits.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://github.com/pravin" target="_blank">📱</a>
+                        <a href="https://linkedin.com/in/pravinp" target="_blank">💼</a>
+                        <a href="https://medium.com/@pravin" target="_blank">✍️</a>
+                        <a href="mailto:pravin@paratey.com">📧</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Fractional CTO</a></li>
+                        <li><a href="#services">Leadership Coaching</a></li>
+                        <li><a href="#services">AI Transformation</a></li>
+                        <li><a href="https://medium.com/engineering-management" target="_blank">Resources</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://calendly.com/prav-kaizan/30min" target="_blank">Book a Call</a></li>
+                        <li><a href="mailto:pravin@paratey.com">Email Me</a></li>
+                        <li><a href="https://kaizan.ai" target="_blank">Kaizan</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pravin Paratey. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particles = document.querySelector('.particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particles.appendChild(particle);
+            }
+        }
+
+        // Animate counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current) + (target === 10 ? 'x' : target === 20 ? '+' : '');
+                }, 40);
+            });
+        }
+
+        // Scroll reveal animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 15, 0.98)';
+            } else {
+                header.style.background = 'rgba(10, 10, 15, 0.95)';
+            }
+            
+            revealOnScroll();
+        });
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            setTimeout(animateCounters, 1000);
+            revealOnScroll();
+        });
+    </script>
+</body>
 </html>
