@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pravin Paratey - AI-Powered CTO & Engineering Leadership Coach</title>
+    <title>Pravin Paratey — AI Advisor, Investor & Board Member</title>
+    <meta name="description" content="20+ years in AI/NLP. 4 successful exits. 2 patents. I advise boards, investors, and founders on AI strategy, due diligence, and technology leadership.">
     <link rel="icon" type="image/svg" href="favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0a0a0f;
-            --secondary-color: #1a1a2e;
-            --accent-color: #6366f1;
-            --highlight-color: #8b5cf6;
-            --success-color: #10b981;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --text-accent: #c084fc;
-            --background-primary: #0a0a0f;
-            --background-secondary: #111118;
-            --background-accent: #1f1f28;
-            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
-            --gradient-accent: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            --gradient-hero: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #2d1b69 100%);
-            --glow: 0 0 20px rgba(139, 92, 246, 0.3);
+            --bg: #ffffff;
+            --bg-subtle: #f9fafb;
+            --text: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-tertiary: #6b7280;
+            --accent: #1e293b;
+            --accent-light: #f1f5f9;
+            --border: #e5e7eb;
+            --border-light: #f3f4f6;
+            --max-width: 800px;
+            --max-width-wide: 1080px;
         }
 
         * {
@@ -35,44 +32,34 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--background-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Roboto Flex', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Layout */
         .container {
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Floating particles background */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+        .container-wide {
+            max-width: var(--max-width-wide);
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--text-accent);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.6;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        section {
+            padding: 100px 0;
         }
 
         /* Header */
@@ -80,807 +67,593 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 15, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .nav {
+        .header-inner {
+            max-width: var(--max-width-wide);
+            margin: 0 auto;
+            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 24px;
+        .header-name {
+            font-family: 'Roboto Flex', sans-serif;
             font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 18px;
+            color: var(--text);
+            text-decoration: none;
         }
 
-        .nav-links {
+        .header-nav {
             display: flex;
+            align-items: center;
+            gap: 32px;
             list-style: none;
-            gap: 30px;
         }
 
-        .nav-links a {
-            color: var(--text-secondary);
+        .header-nav a {
+            color: var(--text-tertiary);
             text-decoration: none;
+            font-size: 14px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--text-accent);
+        .header-nav a:hover {
+            color: var(--text);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: width 0.3s ease;
+        .header-cta {
+            background: var(--accent) !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            padding: 8px 18px;
+            border-radius: 6px;
+            transition: opacity 0.2s;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .header-cta:hover {
+            opacity: 0.85;
+            color: #ffffff !important;
         }
 
-        .cta-button {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: var(--glow);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            min-height: 100vh;
+            padding: 160px 0 100px;
+        }
+
+        .hero-layout {
             display: flex;
-            align-items: center;
-            background: var(--gradient-hero);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.4;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 300px;
+            align-items: flex-start;
             gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
         }
 
-        .hero-text h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.8rem;
-            font-weight: 800;
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-photo {
+            flex-shrink: 0;
+        }
+
+        .hero-photo img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: 3px solid var(--border);
+        }
+
+        .hero h1 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--text);
             margin-bottom: 20px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-            animation: slideInLeft 1s ease-out;
+            letter-spacing: -0.02em;
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-accent);
-            margin-bottom: 30px;
-            font-weight: 500;
-            animation: slideInLeft 1s ease-out 0.2s both;
-        }
-
-        .hero-description {
             font-size: 1.2rem;
             color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 600px;
             line-height: 1.7;
-            animation: slideInLeft 1s ease-out 0.4s both;
+            margin-bottom: 32px;
+            max-width: 560px;
         }
 
         .hero-stats {
             display: flex;
-            gap: 40px;
-            margin-bottom: 40px;
-            animation: slideInUp 1s ease-out 0.6s both;
+            gap: 32px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
         }
 
-        .stat {
-            text-align: center;
-            position: relative;
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-            counter-set: stat 0;
-            animation: countUp 2s ease-out 1s both;
+        .hero-stat-value {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text);
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.05em;
             font-weight: 500;
         }
 
         .hero-cta {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            animation: slideInUp 1s ease-out 0.8s both;
-        }
-
-        .primary-btn {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 18px 36px;
-            border-radius: 50px;
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: var(--glow);
-            position: relative;
-            overflow: hidden;
+            font-size: 15px;
+            transition: opacity 0.2s;
         }
 
-        .primary-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+        .hero-cta:hover {
+            opacity: 0.85;
         }
 
-        .primary-btn:hover::before {
-            left: 100%;
-        }
-
-        .primary-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
-        }
-
-        .secondary-btn {
-            color: var(--text-accent);
-            text-decoration: none;
+        /* Section headers */
+        .section-label {
+            font-size: 0.8rem;
             font-weight: 600;
-            border: 2px solid var(--text-accent);
-            padding: 16px 30px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .secondary-btn:hover {
-            background: var(--text-accent);
-            color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(192, 132, 252, 0.3);
-        }
-
-        .hero-image {
-            position: relative;
-            animation: slideInRight 1s ease-out;
-        }
-
-        .profile-card {
-            background: rgba(17, 17, 24, 0.8);
-            border-radius: 24px;
-            padding: 30px;
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .profile-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.2);
-        }
-
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: block;
-            border: 4px solid var(--text-accent);
-            transition: all 0.3s ease;
-            object-fit: cover;
-            object-position: center;
-            opacity: 0.7;
-        }
-
-
-        .profile-card:hover .profile-image {
-            border-color: var(--highlight-color);
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
-            opacity: 1;
-        }
-
-        .profile-title {
-            text-align: center;
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .profile-company {
-            text-align: center;
-            color: var(--text-accent);
-            font-weight: 500;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 120px 0;
-            background: var(--background-secondary);
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 16px;
         }
 
         .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--text-primary);
+            font-family: 'Roboto Flex', sans-serif;
+            font-size: 2rem;
             font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
         }
 
-        .section-subtitle {
-            font-size: 1.3rem;
+        .section-description {
+            font-size: 1.1rem;
             color: var(--text-secondary);
+            line-height: 1.7;
             max-width: 600px;
-            margin: 0 auto;
+            margin-bottom: 48px;
+        }
+
+        /* Advisory / What I Do */
+        .advisory {
+            background: var(--bg-subtle);
+        }
+
+        .advisory-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 48px;
+            max-width: 640px;
+        }
+
+        .advisory-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .advisory-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: border-color 0.2s;
+        }
+
+        .advisory-card:hover {
+            border-color: var(--text-secondary);
+        }
+
+        .advisory-card h3 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .advisory-card-audience {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .advisory-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
 
-        .services-grid {
+        .advisory-card-note {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            font-style: italic;
+        }
+
+        /* Track Record */
+        .track-record-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 0;
         }
 
-        .service-card {
-            background: var(--background-accent);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-primary);
-        }
-
-        .service-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .service-card:hover::after {
-            opacity: 1;
-        }
-
-        .service-card:hover {
-            transform: translateY(-15px);
-            border-color: rgba(139, 92, 246, 0.3);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-primary);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            font-size: 28px;
-            box-shadow: var(--glow);
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-primary);
-        }
-
-        .service-description {
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        .service-features {
-            list-style: none;
-        }
-
-        .service-features li {
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-            padding-left: 24px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success-color);
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .service-card:hover .service-features li {
-            color: var(--text-primary);
-        }
-
-        /* AI Expertise Section */
-        .ai-expertise {
-            padding: 120px 0;
-            background: var(--background-primary);
-            position: relative;
-        }
-
-        .expertise-content {
+        .track-record-item {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
+            grid-template-columns: 200px 1fr;
+            gap: 24px;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .expertise-text h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 24px;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
+        .track-record-item:last-child {
+            border-bottom: none;
         }
 
-        .expertise-description {
-            font-size: 1.2rem;
+        .track-record-label {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .track-record-value {
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            margin-bottom: 30px;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
+        .track-record-value strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* Tech stack */
         .tech-stack {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
         }
 
-        .tech-item {
-            background: var(--background-secondary);
-            padding: 20px 16px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.3s ease;
+        .tech-tag {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
             font-weight: 500;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tech-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-primary);
-            opacity: 0.1;
-            transition: left 0.3s ease;
-        }
-
-        .tech-item:hover::before {
-            left: 0;
-        }
-
-        .tech-item:hover {
-            border-color: var(--text-accent);
-            transform: translateY(-5px);
-            color: var(--text-primary);
-            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2);
         }
 
         /* Testimonials */
         .testimonials {
-            padding: 120px 0;
-            background: var(--background-secondary);
+            background: var(--bg-subtle);
         }
 
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
         }
 
         .testimonial-card {
-            background: var(--background-accent);
-            padding: 35px;
-            border-radius: 20px;
-            border: 1px solid rgba(139, 92, 246, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            font-size: 60px;
-            color: var(--text-accent);
-            opacity: 0.3;
-            font-family: serif;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(139, 92, 246, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
         }
 
         .testimonial-text {
-            font-style: italic;
-            margin-bottom: 24px;
-            line-height: 1.8;
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            font-size: 1.05rem;
-            position: relative;
-            z-index: 2;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-text strong {
+            color: var(--text);
+            font-style: normal;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .author-avatar {
-            width: 50px;
-            height: 50px;
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: var(--gradient-primary);
+            object-fit: cover;
+        }
+
+        .testimonial-avatar-placeholder {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--border-light);
+            color: var(--text-tertiary);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-weight: 600;
+            font-size: 0.8rem;
         }
 
-        .author-info h4 {
-            color: var(--text-primary);
-            margin-bottom: 5px;
+        .testimonial-name {
             font-weight: 600;
-        }
-
-        .author-info p {
-            color: var(--text-secondary);
             font-size: 0.9rem;
+            color: var(--text);
         }
 
-        /* CTA Section */
-        .cta-section {
-            padding: 120px 0;
-            background: var(--gradient-hero);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
         }
 
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1), transparent);
+        /* Thought Leadership */
+        .writing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
-        .cta-content {
-            position: relative;
-            z-index: 2;
+        .writing-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            transition: border-color 0.2s;
+            display: flex;
+            flex-direction: column;
         }
 
-        .cta-content h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            margin-bottom: 24px;
-            font-weight: 700;
+        .writing-card:hover {
+            border-color: var(--text-secondary);
         }
 
-        .cta-description {
-            font-size: 1.3rem;
+        .writing-card-source {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+            margin-bottom: 10px;
+        }
+
+        .writing-card-title {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .writing-card-arrow {
+            margin-top: 16px;
             color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 600px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+        }
+
+        .cta .section-description {
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: opacity 0.2s;
+        }
+
+        .cta-primary:hover {
+            opacity: 0.85;
+        }
+
+        .cta-secondary {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .cta-secondary:hover {
+            color: var(--text);
         }
 
         /* Footer */
         .footer {
-            padding: 80px 0 40px;
-            background: var(--background-primary);
-            border-top: 1px solid rgba(139, 92, 246, 0.1);
+            padding: 40px 0;
+            border-top: 1px solid var(--border-light);
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .footer-about h3 {
-            color: var(--text-accent);
-            margin-bottom: 16px;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .footer-about p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .footer-links h4 {
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .footer-links ul {
+        .footer-links {
+            display: flex;
+            gap: 24px;
             list-style: none;
         }
 
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul li a {
-            color: var(--text-secondary);
+        .footer-links a {
+            color: var(--text-tertiary);
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-size: 14px;
+            transition: color 0.2s;
         }
 
-        .footer-links ul li a:hover {
-            color: var(--text-accent);
+        .footer-links a:hover {
+            color: var(--text);
         }
 
-        .social-links {
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--text-tertiary);
+        }
+
+        /* Company logos */
+        .logos-section {
+            background: var(--bg-subtle);
+        }
+
+        .logos-grid {
             display: flex;
-            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px 56px;
+            margin-top: 32px;
         }
 
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            background: var(--background-secondary);
-            border-radius: 50%;
+        .logo-item {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(139, 92, 246, 0.1);
         }
 
-        .social-links a:hover {
-            background: var(--text-accent);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(192, 132, 252, 0.3);
+        .logo-item img {
+            max-height: 32px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: opacity 0.2s, filter 0.2s;
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(139, 92, 246, 0.1);
-            color: var(--text-secondary);
+        .logo-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
         }
 
-        /* Animations */
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .logo-placeholder {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            opacity: 0.5;
+            letter-spacing: 0.02em;
         }
 
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes countUp {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Mobile Responsiveness */
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            section {
+                padding: 72px 0;
             }
 
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
+            .hero {
+                padding: 120px 0 72px;
             }
 
-            .hero-text h1 {
-                font-size: 2.8rem;
+            .hero-layout {
+                flex-direction: column-reverse;
+                gap: 32px;
             }
 
-            .section-title {
-                font-size: 2.2rem;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            .expertise-text h2 {
-                font-size: 2.2rem;
-            }
-
-            .cta-content h2 {
-                font-size: 2.2rem;
+            .hero-subtitle {
+                font-size: 1.05rem;
             }
 
             .hero-stats {
-                justify-content: center;
-                gap: 30px;
+                gap: 24px;
             }
 
-            .hero-cta {
+            .hero-photo img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .header-nav {
+                gap: 16px;
+            }
+
+            .header-nav .nav-hide-mobile {
+                display: none;
+            }
+
+            .advisory-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .track-record-item {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .writing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .footer-inner {
                 flex-direction: column;
-                align-items: center;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .expertise-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
+                gap: 16px;
                 text-align: center;
             }
-
-            .tech-stack {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Scroll reveal animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
     <script type="application/ld+json">
@@ -889,223 +662,283 @@
             "@type": "Person",
             "name": "Pravin Paratey",
             "url": "https://cto.me.uk",
-            "jobTitle": ["CTO", "Engineering Leadership Coach", "Angel Investor"],
+            "jobTitle": ["AI Advisor", "Board Member", "Angel Investor", "CTO"],
             "worksFor": {
                 "@type": "Organization",
                 "name": "Kaizan"
+            },
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Indian Institute of Technology, Bombay"
             },
             "sameAs": [
                 "https://medium.com/@pravin",
                 "https://linkedin.com/in/pravinp",
                 "https://x.com/pravin",
                 "https://github.com/pravin"
-            ]
+            ],
+            "description": "AI Advisor and Investor with 20+ years in AI/NLP, 4 successful exits, and 2 patents. Advises boards, investors, and founders on AI strategy."
         }
     </script>
 </head>
 <body>
-    <!-- Floating particles -->
-    <div class="particles"></div>
 
     <!-- Header -->
     <header class="header">
-        <nav class="nav container">
-            <div class="logo">Pravin Paratey</div>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#expertise">AI Expertise</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
+        <div class="header-inner">
+            <a href="#" class="header-name">Pravin Paratey</a>
+            <ul class="header-nav">
+                <li class="nav-hide-mobile"><a href="#advisory">Advisory</a></li>
+                <li class="nav-hide-mobile"><a href="#record">Track Record</a></li>
+                <li class="nav-hide-mobile"><a href="#testimonials">Testimonials</a></li>
+                <li><a href="https://calendly.com/prav-kaizan/30min" target="_blank" class="header-cta">Book a Call</a></li>
             </ul>
-            <a href="https://calendly.com/prav-kaizan/30min" class="cta-button" target="_blank">Book a Call</a>
-        </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-layout">
                 <div class="hero-text">
-                    <h1>Transform Teams with AI-First Leadership</h1>
-                    <p class="hero-subtitle">Fractional CTO & Engineering Leadership Coach</p>
-                    <p class="hero-description">
-                        Scale your engineering organization 10x in 24 months through proven AI strategies and leadership frameworks. With 20+ years in AI/NLP and 4 successful exits, I turn ambitious visions into executable roadmaps.
+                    <h1>I help boards, investors &amp; founders make better AI decisions</h1>
+                    <p class="hero-subtitle">
+                        20+ years building production AI systems. 4 successful exits. Now I advise on the AI decisions that matter most — strategy, due diligence, and technology leadership.
                     </p>
-                    
                     <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number" data-target="20">0</span>
-                            <span class="stat-label">Years AI/NLP</span>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">20+</span>
+                            <span class="hero-stat-label">Years in AI/NLP</span>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number" data-target="4">0</span>
-                            <span class="stat-label">Successful Exits</span>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">4</span>
+                            <span class="hero-stat-label">Exits</span>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number" data-target="10">0</span>
-                            <span class="stat-label">Team Growth</span>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">2</span>
+                            <span class="hero-stat-label">Patents</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-value">$2.5B</span>
+                            <span class="hero-stat-label">Revenue Products</span>
                         </div>
                     </div>
+                    <a href="https://calendly.com/prav-kaizan/30min" target="_blank" class="hero-cta">Book a Conversation</a>
+                </div>
+                <div class="hero-photo">
+                    <img src="images/Prav.jpg" alt="Pravin Paratey">
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="hero-cta">
-                        <a href="https://calendly.com/prav-kaizan/30min" class="primary-btn" target="_blank">
-                            🚀 Get Your AI Roadmap
-                        </a>
-                        <a href="#services" class="secondary-btn">Explore Services</a>
+    <!-- Advisory -->
+    <section id="advisory" class="advisory">
+        <div class="container-wide">
+            <p class="section-label">How I Work</p>
+            <h2 class="section-title">Advisory &amp; Investment</h2>
+            <p class="advisory-intro">
+                I've spent two decades building AI products, scaling engineering teams, and navigating exits. I bring that operator experience to the boardroom, the deal table, and the founding team.
+            </p>
+
+            <div class="advisory-grid">
+                <div class="advisory-card">
+                    <h3>Board &amp; NED Advisory</h3>
+                    <p class="advisory-card-audience">For boards, PE portfolio companies &amp; scale-ups</p>
+                    <p>AI governance, technology strategy, and risk oversight. I help boards ask the right questions about AI capabilities, investment, and competitive positioning.</p>
+                    <p class="advisory-card-note">Currently accepting 1–2 new board positions</p>
+                </div>
+
+                <div class="advisory-card">
+                    <h3>Investor Advisory &amp; Due Diligence</h3>
+                    <p class="advisory-card-audience">For VCs, PE firms &amp; corporate M&amp;A teams</p>
+                    <p>Technical due diligence, AI capability assessment, and investment thesis validation. I evaluate what's real and what's hype in AI-native companies.</p>
+                </div>
+
+                <div class="advisory-card">
+                    <h3>Startup Advisory</h3>
+                    <p class="advisory-card-audience">For VC-backed founders, Series A–C</p>
+                    <p>AI product strategy, architecture decisions, and team building. I help founders navigate the technical decisions that determine whether AI products ship or stall.</p>
+                </div>
+
+                <div class="advisory-card">
+                    <h3>Speaking &amp; Workshops</h3>
+                    <p class="advisory-card-audience">For conferences &amp; leadership teams</p>
+                    <p>Keynotes on AI strategy, LLMs in enterprise, and building AI-first engineering teams. Corporate workshops on practical AI adoption.</p>
+                    <p class="advisory-card-note">Available for 2026 engagements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Record -->
+    <section id="record">
+        <div class="container">
+            <p class="section-label">Track Record</p>
+            <h2 class="section-title">Built, scaled, and exited</h2>
+            <p class="section-description">
+                The advice I give comes from doing the work — building products, leading teams, and navigating acquisitions.
+            </p>
+
+            <div class="track-record-grid">
+                <div class="track-record-item">
+                    <div class="track-record-label">Current</div>
+                    <div class="track-record-value">
+                        <strong>CTO &amp; Co-founder, Kaizan.ai</strong> — AI client engagement platform processing millions of customer interactions. SOC 2 Type 2 certified.
                     </div>
                 </div>
 
-                <div class="hero-image">
-                    <div class="profile-card">
-                        <img src="images/Prav.jpg" alt="Pravin Paratey" class="profile-image">
-                        <h3 class="profile-title">CTO & Co-founder</h3>
-                        <p class="profile-company">Kaizan.ai</p>
+                <div class="track-record-item">
+                    <div class="track-record-label">Exits</div>
+                    <div class="track-record-value">
+                        <!-- TODO: User to provide exit details -->
+                        4 successful exits across AI and technology companies. <em>(Details coming soon)</em>
+                    </div>
+                </div>
+
+                <div class="track-record-item">
+                    <div class="track-record-label">Patents</div>
+                    <div class="track-record-value">
+                        <strong>Content Delivery Optimization Using Exposure Memory Prediction</strong> (2019)<br>
+                        <strong>Electronic Displays with Customized Content</strong> (2018)
+                    </div>
+                </div>
+
+                <div class="track-record-item">
+                    <div class="track-record-label">Education</div>
+                    <div class="track-record-value">
+                        <strong>IIT Bombay</strong> — Computer Science with emphasis on NLP, Information Extraction &amp; Search (1999–2003)
+                    </div>
+                </div>
+
+                <div class="track-record-item">
+                    <div class="track-record-label">AI Expertise</div>
+                    <div class="track-record-value">
+                        Deep technical expertise across the modern AI stack:
+                        <div class="tech-stack">
+                            <span class="tech-tag">Agentic AI</span>
+                            <span class="tech-tag">Multi-Agent Systems</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">Fine-Tuning & Alignment</span>
+                            <span class="tech-tag">AI Orchestration</span>
+                            <span class="tech-tag">Compound AI Systems</span>
+                            <span class="tech-tag">Multimodal AI</span>
+                            <span class="tech-tag">LLMOps</span>
+                            <span class="tech-tag">AI Governance</span>
+                            <span class="tech-tag">Inference Optimization</span>
+                            <span class="tech-tag">AI Safety & Evaluation</span>
+                            <span class="tech-tag">NLP / Information Retrieval</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Accelerate Your Growth</h2>
-                <p class="section-subtitle">
-                    From startup chaos to enterprise excellence. I've navigated this journey 4 times and know exactly where the opportunities and pitfalls lie.
-                </p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-icon">🎯</div>
-                    <h3 class="service-title">Fractional CTO Services</h3>
-                    <p class="service-description">
-                        Get senior technical leadership without the full-time commitment. Perfect for startups and scale-ups needing strategic technical direction.
-                    </p>
-                    <ul class="service-features">
-                        <li>AI-first technology strategy & roadmaps</li>
-                        <li>Scalable architecture & technical debt elimination</li>
-                        <li>Investor-ready technical communications</li>
-                        <li>Team scaling & elite talent acquisition</li>
-                        <li>Exit preparation & due diligence support</li>
-                    </ul>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-icon">🚀</div>
-                    <h3 class="service-title">Engineering Leadership Coaching</h3>
-                    <p class="service-description">
-                        Transform your engineering managers into exceptional leaders who inspire peak performance and drive breakthrough results.
-                    </p>
-                    <ul class="service-features">
-                        <li>Executive presence & strategic thinking</li>
-                        <li>High-performance team building & culture</li>
-                        <li>Data-driven performance management</li>
-                        <li>Cross-functional stakeholder influence</li>
-                        <li>Leadership pipeline development</li>
-                    </ul>
-                </div>
-
-                <div class="service-card reveal">
-                    <div class="service-icon">🤖</div>
-                    <h3 class="service-title">AI Transformation</h3>
-                    <p class="service-description">
-                        Build AI capabilities that create sustainable competitive advantages. Based on 20 years of real-world AI implementation experience.
-                    </p>
-                    <ul class="service-features">
-                        <li>AI strategy & competitive moat development</li>
-                        <li>Team AI literacy & capability building</li>
-                        <li>Production-ready AI system architecture</li>
-                        <li>ROI measurement & optimization frameworks</li>
-                        <li>AI governance & risk management</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Expertise Section -->
-    <section id="expertise" class="ai-expertise">
-        <div class="container">
-            <div class="expertise-content">
-                <div class="expertise-text reveal">
-                    <h2>20 Years of AI Innovation</h2>
-                    <p class="expertise-description">
-                        I've been building production AI systems since before transformers existed. From early search engines to modern LLMs, I've witnessed every evolution and know what actually delivers business value.
-                    </p>
-                    <p class="expertise-description">
-                        Currently as CTO of Kaizan, I'm building AI platforms that process millions of customer interactions to drive measurable business outcomes. This isn't theory — it's proven AI at enterprise scale.
-                    </p>
-                    <a href="https://calendly.com/prav-kaizan/30min" class="primary-btn" target="_blank">
-                        Discuss Your AI Strategy
-                    </a>
-                </div>
-
-                <div class="tech-stack reveal">
-                    <div class="tech-item">GPT-4</div>
-                    <div class="tech-item">Claude API</div>
-                    <div class="tech-item">LLaMA</div>
-                    <div class="tech-item">Mistral</div>
-                    <div class="tech-item">Fine-tuning</div>
-                    <div class="tech-item">RAG</div>
-                    <div class="tech-item">Embeddings</div>
-                    <div class="tech-item">LangChain</div>
-                    <div class="tech-item">Pinecone</div>
-                    <div class="tech-item">Weaviate</div>
-                    <div class="tech-item">Hugging Face</div>
-                    <div class="tech-item">MLOps</div>
-                </div>
+    <!-- Company Logos -->
+    <section class="logos-section">
+        <div class="container-wide">
+            <p class="section-label" style="text-align: center;">Trusted By</p>
+            <div class="logos-grid">
+                <!-- Replace placeholders with actual company logo images -->
+                <!-- Use: <div class="logo-item"><img src="images/logos/company.svg" alt="Company Name"></div> -->
+                <div class="logo-item"><span class="logo-placeholder">Company 1</span></div>
+                <div class="logo-item"><span class="logo-placeholder">Company 2</span></div>
+                <div class="logo-item"><span class="logo-placeholder">Company 3</span></div>
+                <div class="logo-item"><span class="logo-placeholder">Company 4</span></div>
+                <div class="logo-item"><span class="logo-placeholder">Company 5</span></div>
+                <div class="logo-item"><span class="logo-placeholder">Company 6</span></div>
+                <div class="logo-item"><span class="logo-placeholder">Company 7</span></div>
+                <div class="logo-item"><span class="logo-placeholder">Company 8</span></div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title">Leadership That Delivers</h2>
-                <p class="section-subtitle">
-                    Real transformations from leaders who've accelerated their teams and achieved breakthrough results.
-                </p>
-            </div>
+        <div class="container-wide">
+            <p class="section-label">Testimonials</p>
+            <h2 class="section-title">What people say</h2>
+            <p class="section-description">
+                From founders to investors to engineering leaders.
+            </p>
 
             <div class="testimonial-grid">
-                <div class="testimonial-card reveal">
+                <div class="testimonial-card">
                     <p class="testimonial-text">
-                        "Pravin's mentorship played a pivotal role in our early startup journey. His insights on product-market fit, B2B sales, and technical strategy saved us months of trial-and-error. Every conversation with him brought unmatched clarity and direction. From helping us navigate fundraising challenges to pushing our thinking on our ideas, his advice directly shaped our trajectory. Couldn't have asked for a better guide."
+                        "Pravin's mentorship played a pivotal role in our early startup journey. His insights on <strong>product-market fit, B2B sales, and technical strategy saved us months of trial-and-error</strong>. Every conversation brought unmatched clarity and direction. From helping us navigate fundraising challenges to pushing our thinking, his advice directly shaped our trajectory."
                     </p>
                     <div class="testimonial-author">
-                        <img src="images/testimonials/navyansh.jpeg" alt="Navyansh Mahla" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Navyansh Mahla</h4>
-                            <p>PayMind</p>
+                        <img src="images/testimonials/navyansh.jpeg" alt="Navyansh Mahla" class="testimonial-avatar">
+                        <div>
+                            <div class="testimonial-name">Navyansh Mahla</div>
+                            <div class="testimonial-role">PayMind</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="testimonial-card reveal">
+                <!-- Placeholder for user-provided testimonials -->
+                <div class="testimonial-card">
                     <p class="testimonial-text">
-                        "The leadership coaching was game-changing. Pravin's methods for building high-performance teams and strategic thinking elevated my entire management approach. Our team velocity doubled."
+                        "[Testimonial 2 — please provide]"
                     </p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
-                        <div class="author-info">
-                            <h4>Marcus Rodriguez</h4>
-                            <p>VP Engineering, DataCorp</p>
+                        <div class="testimonial-avatar-placeholder">?</div>
+                        <div>
+                            <div class="testimonial-name">Name</div>
+                            <div class="testimonial-role">Title, Company</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="testimonial-card reveal">
+                <div class="testimonial-card">
                     <p class="testimonial-text">
-                        "Pravin's fractional CTO guidance was instrumental in our Series A success. His technical strategy and AI roadmap impressed investors and positioned us as industry leaders."
+                        "[Testimonial 3 — please provide]"
                     </p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">EW</div>
-                        <div class="author-info">
-                            <h4>Emily Watson</h4>
-                            <p>Founder, AI Innovations</p>
+                        <div class="testimonial-avatar-placeholder">?</div>
+                        <div>
+                            <div class="testimonial-name">Name</div>
+                            <div class="testimonial-role">Title, Company</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "[Testimonial 4 — please provide]"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar-placeholder">?</div>
+                        <div>
+                            <div class="testimonial-name">Name</div>
+                            <div class="testimonial-role">Title, Company</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "[Testimonial 5 — please provide]"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar-placeholder">?</div>
+                        <div>
+                            <div class="testimonial-name">Name</div>
+                            <div class="testimonial-role">Title, Company</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "[Testimonial 6 — please provide]"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar-placeholder">?</div>
+                        <div>
+                            <div class="testimonial-name">Name</div>
+                            <div class="testimonial-role">Title, Company</div>
                         </div>
                     </div>
                 </div>
@@ -1113,142 +946,77 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="contact" class="cta-section">
-        <div class="container">
-            <div class="cta-content reveal">
-                <h2>Ready to Transform Your Team?</h2>
-                <p class="cta-description">
-                    Join the leaders who've 10x'd their engineering organizations with proven AI strategies. Let's create your transformation roadmap in a free 30-minute strategy session.
-                </p>
-                <a href="https://calendly.com/prav-kaizan/30min" class="primary-btn" target="_blank">
-                    📅 Claim Your Free Strategy Session
+    <!-- Thought Leadership -->
+    <section id="writing">
+        <div class="container-wide">
+            <p class="section-label">Writing</p>
+            <h2 class="section-title">Thought leadership</h2>
+            <p class="section-description">
+                Perspectives on AI, engineering leadership, and building technology teams.
+            </p>
+
+            <div class="writing-grid">
+                <a href="https://www.linkedin.com/pulse/we-did-soc-2-type-pravin-paratey/" target="_blank" class="writing-card">
+                    <div class="writing-card-source">LinkedIn</div>
+                    <div class="writing-card-title">WE DID IT! SOC 2 Type 2</div>
+                    <div class="writing-card-arrow">Read &rarr;</div>
                 </a>
+
+                <a href="https://www.linkedin.com/pulse/four-things-effective-managers-large-teams-do-well-pravin-paratey/" target="_blank" class="writing-card">
+                    <div class="writing-card-source">LinkedIn</div>
+                    <div class="writing-card-title">Four things that effective managers of large teams do well</div>
+                    <div class="writing-card-arrow">Read &rarr;</div>
+                </a>
+
+                <a href="https://www.linkedin.com/pulse/7-different-personality-types-software-engineering-pravin-paratey/" target="_blank" class="writing-card">
+                    <div class="writing-card-source">LinkedIn</div>
+                    <div class="writing-card-title">The 7 different personality types in software engineering</div>
+                    <div class="writing-card-arrow">Read &rarr;</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta">
+        <div class="container">
+            <h2 class="section-title">Let's talk</h2>
+            <p class="section-description">
+                Whether you need a board advisor, technical due diligence, or AI strategy guidance — it starts with a conversation.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://calendly.com/prav-kaizan/30min" target="_blank" class="cta-primary">Book a 30-Minute Call</a>
+                <a href="mailto:pravin@paratey.com" class="cta-secondary">or email me</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>Pravin Paratey</h3>
-                    <p>
-                        Transforming engineering leaders and organizations through AI-powered strategies. 20 years of proven experience building teams, products, and successful exits.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://github.com/pravin" target="_blank">📱</a>
-                        <a href="https://linkedin.com/in/pravinp" target="_blank">💼</a>
-                        <a href="https://medium.com/@pravin" target="_blank">✍️</a>
-                        <a href="mailto:pravin@paratey.com">📧</a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Fractional CTO</a></li>
-                        <li><a href="#services">Leadership Coaching</a></li>
-                        <li><a href="#services">AI Transformation</a></li>
-                        <li><a href="https://medium.com/engineering-management" target="_blank">Resources</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="https://calendly.com/prav-kaizan/30min" target="_blank">Book a Call</a></li>
-                        <li><a href="mailto:pravin@paratey.com">Email Me</a></li>
-                        <li><a href="https://kaizan.ai" target="_blank">Kaizan</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Pravin Paratey. All rights reserved.</p>
+        <div class="container-wide">
+            <div class="footer-inner">
+                <ul class="footer-links">
+                    <li><a href="https://linkedin.com/in/pravinp" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://github.com/pravin" target="_blank">GitHub</a></li>
+                    <li><a href="https://medium.com/@pravin" target="_blank">Medium</a></li>
+                    <li><a href="https://x.com/pravin" target="_blank">X</a></li>
+                    <li><a href="mailto:pravin@paratey.com">Email</a></li>
+                </ul>
+                <div class="footer-copyright">&copy; 2026 Pravin Paratey</div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Create floating particles
-        function createParticles() {
-            const particles = document.querySelector('.particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                particles.appendChild(particle);
-            }
-        }
-
-        // Animate counters
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const increment = target / 50;
-                let current = 0;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    counter.textContent = Math.floor(current) + (target === 10 ? 'x' : target === 20 ? '+' : '');
-                }, 40);
-            });
-        }
-
-        // Scroll reveal animation
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('active');
-                }
-            });
-        }
-
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(10, 10, 15, 0.98)';
-            } else {
-                header.style.background = 'rgba(10, 10, 15, 0.95)';
-            }
-            
-            revealOnScroll();
-        });
-
-        // Initialize everything
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            setTimeout(animateCounters, 1000);
-            revealOnScroll();
         });
     </script>
 </body>
