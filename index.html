@@ -607,6 +607,35 @@
         }
 
 
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f0f0f;
+                --bg-subtle: #1a1a1a;
+                --text: #e5e5e5;
+                --text-secondary: #a3a3a3;
+                --text-tertiary: #737373;
+                --accent: #e2e8f0;
+                --accent-light: #1e293b;
+                --border: #2a2a2a;
+                --border-light: #1f1f1f;
+            }
+
+            .header {
+                background: rgba(15, 15, 15, 0.95);
+            }
+
+            .logo-item img {
+                filter: invert(1) grayscale(100%);
+                opacity: 0.7;
+            }
+
+            .logo-item img:hover {
+                filter: invert(1) grayscale(0%);
+                opacity: 1;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             section {
