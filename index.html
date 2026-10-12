@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en" data-look="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pravin Paratey — Projects</title>
+<meta name="description" content="Public projects and repositories by Pravin Paratey.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23c2410c'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' fill='white' text-anchor='middle'>P</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ---------- Look: Paper (default) ---------- */
+:root, [data-look="paper"] {
+  --bg: #f6f1e7; --surface: #fffdf8; --ink: #1f1b16; --muted: #6b6257; --line: #e2d9c8;
+  --accent: #c2410c; --accent-ink: #fff;
+  --font-head: "Fraunces", Georgia, serif; --font-body: "Inter", system-ui, sans-serif; --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --radius: 4px; --card-shadow: 0 1px 0 var(--line);
+}
+[data-look="terminal"] {
+  --bg: #0c0f0a; --surface: #11160e; --ink: #c8f7c5; --muted: #6f9a6b; --line: #23331f;
+  --accent: #7dff6a; --accent-ink: #0c0f0a;
+  --font-head: "IBM Plex Mono", monospace; --font-body: "IBM Plex Mono", monospace;
+  --radius: 0; --card-shadow: none;
+}
+[data-look="blueprint"] {
+  --bg: #0f2a4a; --surface: #12345b; --ink: #e6f0ff; --muted: #9db6d6; --line: #2e5687;
+  --accent: #ffd166; --accent-ink: #0f2a4a;
+  --font-head: "IBM Plex Mono", monospace; --font-body: "Inter", system-ui, sans-serif;
+  --radius: 2px; --card-shadow: none;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--ink); font: 16px/1.55 var(--font-body);
+  -webkit-font-smoothing: antialiased; transition: background .25s, color .25s;
+}
+[data-look="blueprint"] body {
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+a { color: inherit; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+/* Header */
+header { padding: 56px 0 32px; border-bottom: 1px solid var(--line); }
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.who { display: flex; gap: 20px; align-items: center; }
+.who img { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--line); }
+[data-look="terminal"] .who img { border-radius: 0; filter: grayscale(1) contrast(1.2) sepia(1) hue-rotate(60deg); }
+h1 { font: 600 clamp(28px, 5vw, 44px)/1.1 var(--font-head); margin: 0; letter-spacing: -.01em; }
+[data-look="terminal"] h1::before { content: "> "; color: var(--accent); }
+.bio { color: var(--muted); margin: 6px 0 0; max-width: 56ch; }
+.links { display: flex; gap: 14px; margin-top: 10px; font-size: 14px; flex-wrap: wrap; }
+.links a { color: var(--accent); text-decoration: none; }
+.links a:hover { text-decoration: underline; }
+
+.looks { display: flex; border: 1px solid var(--line); border-radius: calc(var(--radius) + 2px); overflow: hidden; font: 13px var(--font-mono); }
+.looks button { background: transparent; color: var(--muted); border: 0; padding: 7px 12px; cursor: pointer; font: inherit; }
+.looks button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+
+.stats { display: flex; gap: 28px; margin-top: 28px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+.stats b { display: block; font: 600 26px/1.1 var(--font-head); color: var(--ink); }
+
+/* Controls */
+.controls { display: flex; gap: 10px; padding: 20px 0; flex-wrap: wrap; align-items: center; }
+.controls input, .controls select {
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 9px 12px; font: 14px var(--font-body);
+}
+.controls input { flex: 1 1 220px; min-width: 0; }
+.controls label { font-size: 14px; color: var(--muted); display: flex; gap: 6px; align-items: center; cursor: pointer; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; padding-bottom: 8px; }
+.chip { font: 12px var(--font-mono); padding: 4px 10px; border: 1px solid var(--line); border-radius: 99px; background: transparent; color: var(--muted); cursor: pointer; }
+[data-look="terminal"] .chip { border-radius: 0; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+/* Grid */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; padding: 12px 0 64px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--card-shadow);
+  padding: 18px 18px 14px; display: flex; flex-direction: column; gap: 10px; text-decoration: none;
+  transition: transform .15s, border-color .15s;
+}
+.card:hover { transform: translateY(-2px); border-color: var(--accent); }
+[data-look="terminal"] .card:hover { transform: none; box-shadow: 0 0 0 1px var(--accent), 0 0 18px rgba(125,255,106,.15); }
+.card h2 { font: 600 19px/1.25 var(--font-head); margin: 0; word-break: break-word; }
+[data-look="terminal"] .card h2::before { content: "./"; color: var(--muted); }
+.card p { margin: 0; color: var(--muted); font-size: 14.5px; flex: 1; }
+.card p.empty { font-style: italic; opacity: .7; }
+.meta { display: flex; gap: 14px; align-items: center; font: 12.5px var(--font-mono); color: var(--muted); flex-wrap: wrap; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: -1px; }
+.tag { font: 11px var(--font-mono); padding: 2px 7px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); }
+.tag.fork { border-style: dashed; }
+.topics { display: flex; gap: 6px; flex-wrap: wrap; }
+.home { color: var(--accent); text-decoration: none; font-size: 12.5px; font-family: var(--font-mono); }
+.home:hover { text-decoration: underline; }
+.empty-state { color: var(--muted); padding: 40px 0; text-align: center; grid-column: 1 / -1; }
+footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 13px; font-family: var(--font-mono); }
+
+@media (max-width: 560px) {
+  header { padding-top: 32px; }
+  .who img { width: 56px; height: 56px; }
+  .grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="who">
+        <img id="avatar" src="https://avatars.githubusercontent.com/u/12790?v=4" alt="">
+        <div>
+          <h1 id="name">Pravin Paratey</h1>
+          <p class="bio" id="bio">Cofounder @ Kaizan. 23+ years building great products and software engineering teams. 6 startups, ex-Meta.</p>
+          <div class="links">
+            <a href="https://github.com/pravin">GitHub</a>
+            <a href="https://cto.me.uk">cto.me.uk</a>
+            <span style="color:var(--muted)">London</span>
+          </div>
+        </div>
+      </div>
+      <div class="looks" role="group" aria-label="Look">
+        <button data-look="paper">Paper</button>
+        <button data-look="terminal">Terminal</button>
+        <button data-look="blueprint">Blueprint</button>
+      </div>
+    </div>
+    <div class="stats">
+      <div><b id="s-repos">–</b>repositories</div>
+      <div><b id="s-stars">–</b>stars</div>
+      <div><b id="s-langs">–</b>languages</div>
+      <div><b id="s-since">–</b>on GitHub since</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search projects…" aria-label="Search projects">
+    <select id="sort" aria-label="Sort">
+      <option value="updated">Recently updated</option>
+      <option value="stars">Most stars</option>
+      <option value="name">Name</option>
+      <option value="created">Oldest first</option>
+    </select>
+    <label><input type="checkbox" id="forks"> Show forks</label>
+  </div>
+  <div class="chips" id="langs"></div>
+  <div class="grid" id="grid"><div class="empty-state">Loading projects…</div></div>
+</main>
+
+<footer>
+  <div class="wrap">Built from the GitHub API · refreshed daily · <span id="updated"></span></div>
+</footer>
+
+<script>
+const USER = "pravin";
+const COLORS = { Rust:"#dea584", Go:"#00ADD8", Python:"#3572A5", C:"#555555", "C++":"#f34b7d", "C#":"#178600",
+  HTML:"#e34c26", CSS:"#663399", Shell:"#89e051", PHP:"#4F5D95", JavaScript:"#f1e05a", TypeScript:"#3178c6", Dart:"#00B4AB" };
+const SELF_PAGES = `${USER}.github.io`.toLowerCase();
+const state = { repos: [], lang: null, q: "", sort: "updated", forks: false };
+const $ = id => document.getElementById(id);
+
+// Look switcher (remembered per viewer)
+function setLook(look) {
+  document.documentElement.dataset.look = look;
+  document.querySelectorAll(".looks button").forEach(b => b.setAttribute("aria-pressed", b.dataset.look === look));
+  try { localStorage.setItem("look", look); } catch {}
+}
+document.querySelectorAll(".looks button").forEach(b => b.onclick = () => setLook(b.dataset.look));
+let saved = null; try { saved = localStorage.getItem("look"); } catch {}
+setLook(saved || "paper");
+
+async function load() {
+  // repos.json is generated by the deploy workflow; fall back to the live API when it's missing (e.g. local preview).
+  try {
+    const r = await fetch("repos.json", { cache: "no-cache" });
+    if (r.ok) return r.json();
+  } catch {}
+  const r = await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&type=owner`);
+  return r.json();
+}
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+const ago = iso => {
+  const d = (Date.now() - new Date(iso)) / 864e5;
+  if (d < 1) return "today"; if (d < 2) return "yesterday"; if (d < 30) return `${Math.floor(d)}d ago`;
+  if (d < 365) return `${Math.floor(d / 30)}mo ago`; return `${Math.floor(d / 365)}y ago`;
+};
+
+function visible() {
+  const q = state.q.toLowerCase();
+  let list = state.repos.filter(r => (state.forks || !r.fork)
+    && (!state.lang || r.language === state.lang)
+    && (!q || [r.name, r.description, ...(r.topics || [])].join(" ").toLowerCase().includes(q)));
+  const by = { updated: (a, b) => new Date(b.pushed_at) - new Date(a.pushed_at),
+    stars: (a, b) => b.stargazers_count - a.stargazers_count || new Date(b.pushed_at) - new Date(a.pushed_at),
+    name: (a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }),
+    created: (a, b) => new Date(a.created_at) - new Date(b.created_at) }[state.sort];
+  return list.sort(by);
+}
+
+function render() {
+  const list = visible();
+  $("grid").innerHTML = list.length ? list.map(r => {
+    const home = r.homepage && !/github\.com/.test(r.homepage) ? r.homepage : null;
+    return `<a class="card" href="${esc(r.html_url)}">
+      <h2>${esc(r.name)}</h2>
+      <p class="${r.description ? "" : "empty"}">${esc(r.description || "No description yet.")}</p>
+      ${(r.topics || []).length ? `<div class="topics">${r.topics.slice(0, 5).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
+      <div class="meta">
+        ${r.language ? `<span><span class="dot" style="background:${COLORS[r.language] || "#999"}"></span>${esc(r.language)}</span>` : ""}
+        ${r.stargazers_count ? `<span>★ ${r.stargazers_count}</span>` : ""}
+        <span>${ago(r.pushed_at)}</span>
+        ${r.fork ? `<span class="tag fork">fork</span>` : ""}
+        ${r.archived ? `<span class="tag">archived</span>` : ""}
+        ${home ? `<span class="home" data-href="${esc(home)}">${esc(home.replace(/^https?:\/\//, "").replace(/\/$/, ""))} ↗</span>` : ""}
+      </div>
+    </a>`;
+  }).join("") : `<div class="empty-state">No projects match.</div>`;
+}
+
+function renderLangs() {
+  const counts = {};
+  state.repos.filter(r => state.forks || !r.fork).forEach(r => r.language && (counts[r.language] = (counts[r.language] || 0) + 1));
+  const langs = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  if (state.lang && !counts[state.lang]) state.lang = null;
+  $("langs").innerHTML = [`<button class="chip" data-lang="" aria-pressed="${!state.lang}">All</button>`,
+    ...langs.map(([l, n]) => `<button class="chip" data-lang="${esc(l)}" aria-pressed="${state.lang === l}">${esc(l)} · ${n}</button>`)].join("");
+}
+
+$("langs").onclick = e => { const b = e.target.closest(".chip"); if (!b) return; state.lang = b.dataset.lang || null; renderLangs(); render(); };
+$("q").oninput = e => { state.q = e.target.value; render(); };
+$("sort").onchange = e => { state.sort = e.target.value; render(); };
+$("forks").onchange = e => { state.forks = e.target.checked; renderLangs(); render(); };
+// Homepage links live inside the card link, so open them by hand.
+$("grid").onclick = e => { const h = e.target.closest(".home"); if (h) { e.preventDefault(); window.open(h.dataset.href, "_blank", "noopener"); } };
+
+load().then(data => {
+  if (!Array.isArray(data)) throw new Error("bad data");
+  state.repos = data.filter(r => !r.private && r.name.toLowerCase() !== SELF_PAGES);
+  const own = state.repos.filter(r => !r.fork);
+  $("s-repos").textContent = own.length;
+  $("s-stars").textContent = own.reduce((s, r) => s + r.stargazers_count, 0);
+  $("s-langs").textContent = new Set(own.map(r => r.language).filter(Boolean)).size;
+  $("s-since").textContent = Math.min(...own.map(r => new Date(r.created_at).getFullYear()));
+  $("updated").textContent = "last pushed " + ago(own.reduce((m, r) => r.pushed_at > m ? r.pushed_at : m, ""));
+  renderLangs(); render();
+}).catch(() => {
+  $("grid").innerHTML = `<div class="empty-state">Couldn't load projects. See them on <a href="https://github.com/${USER}">GitHub</a>.</div>`;
+});
+</script>
+</body>
+</html>
