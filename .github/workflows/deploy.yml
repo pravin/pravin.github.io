@@ -24,17 +24,21 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch public repos
+      - name: Build data
         env:
-          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
+          # Optional: a read-only token that can see private repos, so yearly stats stay fresh.
+          # Without it the committed stats.json is used as-is.
+          STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
         run: |
           mkdir -p _site
-          cp index.html _site/
-          gh api "users/${{ github.repository_owner }}/repos?type=owner&per_page=100" --paginate \
-            | jq -s 'add | map(select(.private == false)
-                | {name, html_url, description, homepage, language, topics, fork, archived,
-                   stargazers_count, created_at, pushed_at, private})' > _site/repos.json
-          echo "Repos: $(jq length _site/repos.json)"
+          cp -R index.html assets _site/
+          python3 scripts/build_data.py "${{ github.repository_owner }}" _site/repos.json
+          if [ -n "$STATS_TOKEN" ]; then
+            GITHUB_TOKEN="$STATS_TOKEN" python3 scripts/build_stats.py "${{ github.repository_owner }}" _site/stats.json
+          else
+            cp stats.json _site/
+          fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
       - id: deployment

@@ -1,259 +1,272 @@
 <!doctype html>
-<html lang="en" data-look="paper">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pravin Paratey — Projects</title>
-<meta name="description" content="Public projects and repositories by Pravin Paratey.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23c2410c'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' fill='white' text-anchor='middle'>P</text></svg>">
+<title>Pravin Paratey — Things I've made</title>
+<meta name="description" content="Side projects by Pravin Paratey since 2003, starting with Hollowmoon, a classic roguelike you can play in your browser.">
+<meta property="og:title" content="Pravin Paratey — Things I've made">
+<meta property="og:description" content="Side projects since 2003. Start with Hollowmoon, a classic roguelike you can play in your browser.">
+<meta property="og:image" content="https://pravin.github.io/hollowmoon/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230b1220'/><path d='M7 22 L13 10 L19 18 L25 8' stroke='%23e8a33d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ---------- Look: Paper (default) ---------- */
-:root, [data-look="paper"] {
-  --bg: #f6f1e7; --surface: #fffdf8; --ink: #1f1b16; --muted: #6b6257; --line: #e2d9c8;
-  --accent: #c2410c; --accent-ink: #fff;
-  --font-head: "Fraunces", Georgia, serif; --font-body: "Inter", system-ui, sans-serif; --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --radius: 4px; --card-shadow: 0 1px 0 var(--line);
+/* Colours from cto.me.uk */
+:root {
+  --ground: #0b1220; --panel: rgba(13,21,38,.72); --panel-solid: #101a30;
+  --ink: #dfe6f2; --ink2: #9aa7bd; --ink3: #5c6a83; --line: #22314e;
+  --amber: #e8a33d; --amber-dim: rgba(232,163,61,.14); --cyan: #5fa8bc;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-[data-look="terminal"] {
-  --bg: #0c0f0a; --surface: #11160e; --ink: #c8f7c5; --muted: #6f9a6b; --line: #23331f;
-  --accent: #7dff6a; --accent-ink: #0c0f0a;
-  --font-head: "IBM Plex Mono", monospace; --font-body: "IBM Plex Mono", monospace;
-  --radius: 0; --card-shadow: none;
-}
-[data-look="blueprint"] {
-  --bg: #0f2a4a; --surface: #12345b; --ink: #e6f0ff; --muted: #9db6d6; --line: #2e5687;
-  --accent: #ffd166; --accent-ink: #0f2a4a;
-  --font-head: "IBM Plex Mono", monospace; --font-body: "Inter", system-ui, sans-serif;
-  --radius: 2px; --card-shadow: none;
-}
-
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body {
-  background: var(--bg); color: var(--ink); font: 16px/1.55 var(--font-body);
-  -webkit-font-smoothing: antialiased; transition: background .25s, color .25s;
-}
-[data-look="blueprint"] body {
+  background-color: var(--ground); color: var(--ink); font: 16.5px/1.65 var(--sans); -webkit-font-smoothing: antialiased;
   background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-  background-size: 24px 24px;
+    linear-gradient(rgba(95,168,188,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(95,168,188,.045) 1px, transparent 1px),
+    linear-gradient(rgba(95,168,188,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(95,168,188,.08) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px, 140px 140px, 140px 140px;
 }
+::selection { background: var(--amber); color: var(--ground); }
 a { color: inherit; }
-.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+.label { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+section { margin-top: 72px; }
+h2 { font: 500 13px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); margin: 0 0 20px; display: flex; align-items: center; gap: 14px; }
+h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
-/* Header */
-header { padding: 56px 0 32px; border-bottom: 1px solid var(--line); }
-.top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
-.who { display: flex; gap: 20px; align-items: center; }
-.who img { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--line); }
-[data-look="terminal"] .who img { border-radius: 0; filter: grayscale(1) contrast(1.2) sepia(1) hue-rotate(60deg); }
-h1 { font: 600 clamp(28px, 5vw, 44px)/1.1 var(--font-head); margin: 0; letter-spacing: -.01em; }
-[data-look="terminal"] h1::before { content: "> "; color: var(--accent); }
-.bio { color: var(--muted); margin: 6px 0 0; max-width: 56ch; }
-.links { display: flex; gap: 14px; margin-top: 10px; font-size: 14px; flex-wrap: wrap; }
-.links a { color: var(--accent); text-decoration: none; }
-.links a:hover { text-decoration: underline; }
+/* Schematic frame with corner ticks, as on cto.me.uk */
+.frame { position: relative; border: 1px solid var(--line); background: var(--panel); }
+.frame::before, .frame::after { content: ""; position: absolute; width: 14px; height: 14px; border: 0 solid var(--cyan); pointer-events: none; z-index: 2; }
+.frame::before { top: -1px; left: -1px; border-top-width: 1px; border-left-width: 1px; }
+.frame::after { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; }
 
-.looks { display: flex; border: 1px solid var(--line); border-radius: calc(var(--radius) + 2px); overflow: hidden; font: 13px var(--font-mono); }
-.looks button { background: transparent; color: var(--muted); border: 0; padding: 7px 12px; cursor: pointer; font: inherit; }
-.looks button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+/* Intro */
+header.wrap { padding-top: 88px; }
+h1 { font: 500 clamp(38px, 7vw, 68px)/1.02 var(--mono); letter-spacing: -.04em; margin: 16px 0 20px; }
+.intro { font-size: clamp(17px, 2.2vw, 20px); color: var(--ink2); max-width: 42ch; margin: 0; }
+.intro b { color: var(--ink); font-weight: 500; }
+.links { display: flex; gap: 22px; margin-top: 22px; font: 14px var(--mono); flex-wrap: wrap; }
+.links a { color: var(--amber); text-decoration: none; border-bottom: 1px solid transparent; }
+.links a:hover { border-bottom-color: var(--amber); }
 
-.stats { display: flex; gap: 28px; margin-top: 28px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); flex-wrap: wrap; }
-.stats b { display: block; font: 600 26px/1.1 var(--font-head); color: var(--ink); }
-
-/* Controls */
-.controls { display: flex; gap: 10px; padding: 20px 0; flex-wrap: wrap; align-items: center; }
-.controls input, .controls select {
-  background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 9px 12px; font: 14px var(--font-body);
+/* Featured: Hollowmoon */
+.art { display: block; position: relative; aspect-ratio: 1200 / 720; overflow: hidden; border-bottom: 1px solid var(--line); background: #03070f; }
+.art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 90%; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.art:hover img { transform: scale(1.025); }
+.art .title {
+  position: absolute; left: 0; right: 0; top: 0; padding: 30px 32px 70px;
+  background: linear-gradient(rgba(3,7,15,.75), transparent);
 }
-.controls input { flex: 1 1 220px; min-width: 0; }
-.controls label { font-size: 14px; color: var(--muted); display: flex; gap: 6px; align-items: center; cursor: pointer; }
-.chips { display: flex; gap: 6px; flex-wrap: wrap; padding-bottom: 8px; }
-.chip { font: 12px var(--font-mono); padding: 4px 10px; border: 1px solid var(--line); border-radius: 99px; background: transparent; color: var(--muted); cursor: pointer; }
-[data-look="terminal"] .chip { border-radius: 0; }
-.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-
-/* Grid */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; padding: 12px 0 64px; }
-.card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--card-shadow);
-  padding: 18px 18px 14px; display: flex; flex-direction: column; gap: 10px; text-decoration: none;
-  transition: transform .15s, border-color .15s;
+.art .title span { display: block; font: 600 clamp(34px, 6vw, 60px)/1 var(--mono); letter-spacing: -.04em; color: var(--ink); text-shadow: 0 2px 24px rgba(0,0,0,.6); }
+.art .title em { display: block; font: 13px var(--mono); font-style: normal; color: var(--amber); letter-spacing: .12em; text-transform: uppercase; margin-top: 10px; }
+.feature .body { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; padding: 28px 32px 30px; }
+.feature .hook { margin: 0 0 16px; font-size: 18px; line-height: 1.6; }
+.feature ul { margin: 0; padding: 0; list-style: none; color: var(--ink2); font-size: 15px; }
+.feature li { padding-left: 22px; position: relative; margin: 6px 0; }
+.feature li::before { content: "@"; position: absolute; left: 0; font: 600 13px/1.7 var(--mono); color: var(--amber); }
+.feature .cta { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 12px; border-left: 1px solid var(--line); padding-left: 32px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; background: var(--amber); color: var(--ground); text-decoration: none;
+  font: 600 16px var(--mono); padding: 14px 22px; transition: transform .15s, box-shadow .15s;
 }
-.card:hover { transform: translateY(-2px); border-color: var(--accent); }
-[data-look="terminal"] .card:hover { transform: none; box-shadow: 0 0 0 1px var(--accent), 0 0 18px rgba(125,255,106,.15); }
-.card h2 { font: 600 19px/1.25 var(--font-head); margin: 0; word-break: break-word; }
-[data-look="terminal"] .card h2::before { content: "./"; color: var(--muted); }
-.card p { margin: 0; color: var(--muted); font-size: 14.5px; flex: 1; }
-.card p.empty { font-style: italic; opacity: .7; }
-.meta { display: flex; gap: 14px; align-items: center; font: 12.5px var(--font-mono); color: var(--muted); flex-wrap: wrap; }
-.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: -1px; }
-.tag { font: 11px var(--font-mono); padding: 2px 7px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); }
-.tag.fork { border-style: dashed; }
-.topics { display: flex; gap: 6px; flex-wrap: wrap; }
-.home { color: var(--accent); text-decoration: none; font-size: 12.5px; font-family: var(--font-mono); }
-.home:hover { text-decoration: underline; }
-.empty-state { color: var(--muted); padding: 40px 0; text-align: center; grid-column: 1 / -1; }
-footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 13px; font-family: var(--font-mono); }
-
-@media (max-width: 560px) {
-  header { padding-top: 32px; }
-  .who img { width: 56px; height: 56px; }
-  .grid { grid-template-columns: 1fr; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 28px -8px rgba(232,163,61,.6); }
+.btn span { transition: transform .15s; }
+.btn:hover span { transform: translateX(3px); }
+.note { font: 12.5px/1.6 var(--mono); color: var(--ink3); margin: 0; }
+@media (max-width: 760px) {
+  .art { aspect-ratio: 4 / 3; }
+  .art .title { padding: 20px 20px 50px; }
+  .feature .body { grid-template-columns: 1fr; gap: 22px; padding: 22px 20px 24px; }
+  .feature .cta { border-left: 0; padding-left: 0; }
 }
+
+/* Selected work */
+.picks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pick { padding: 22px 22px 20px; display: flex; flex-direction: column; gap: 8px; text-decoration: none; transition: border-color .2s, background-color .2s; }
+a.pick:hover { border-color: color-mix(in srgb, var(--amber) 55%, var(--line)); background: var(--panel-solid); }
+.pick h3 { font: 500 18px/1.25 var(--mono); letter-spacing: -.02em; margin: 0; display: flex; justify-content: space-between; gap: 8px; }
+.pick h3 .arr { color: var(--ink3); transition: color .2s, transform .2s; }
+a.pick:hover h3 .arr { color: var(--amber); transform: translate(2px,-2px); }
+.pick p { margin: 0; color: var(--ink2); font-size: 15px; flex: 1; }
+.pick .meta { font: 12px var(--mono); color: var(--ink3); }
+.pick .sub { display: flex; flex-wrap: wrap; gap: 6px 14px; font: 13px var(--mono); }
+.pick .sub a { color: var(--amber); text-decoration: none; }
+.pick .sub a:hover { text-decoration: underline; }
+@media (max-width: 900px) { .picks { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .picks { grid-template-columns: 1fr; } }
+
+/* Everything else */
+.list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.list li { border-bottom: 1px solid var(--line); }
+.list a { display: grid; grid-template-columns: 200px 1fr 64px; gap: 20px; padding: 13px 4px; text-decoration: none; align-items: baseline; transition: background-color .15s; }
+.list a:hover { background: var(--amber-dim); }
+.list .name { font: 500 14.5px var(--mono); color: var(--ink); overflow-wrap: anywhere; }
+.list a:hover .name { color: var(--amber); }
+.list .desc { color: var(--ink2); font-size: 14.5px; }
+.list .yr { font: 12px var(--mono); color: var(--ink3); text-align: right; }
+@media (max-width: 640px) {
+  .list a { grid-template-columns: 1fr auto; gap: 2px 12px; }
+  .list .desc { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* Footer */
+footer.wrap { margin-top: 88px; padding-top: 28px; padding-bottom: 56px; }
+footer .foot { border-top: 1px solid var(--line); padding-top: 28px; }
+.foot { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.tally { font: 13px/1.7 var(--mono); color: var(--ink2); margin: 0; }
+.tally b { color: var(--ink); font-weight: 600; }
+.strip-wrap { display: flex; flex-direction: column; gap: 6px; }
+.strip { display: flex; align-items: end; gap: 3px; height: 40px; }
+.strip i { display: block; width: 7px; background: var(--amber); opacity: .8; border-radius: 2px 2px 0 0; }
+.strip i:hover { opacity: 1; }
+.strip i.none { background: var(--line); }
+.strip-ends { display: flex; justify-content: space-between; gap: 12px; font: 10.5px var(--mono); color: var(--ink3); }
+.copy { font: 12px var(--mono); color: var(--ink3); margin-top: 28px; }
+
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="top">
-      <div class="who">
-        <img id="avatar" src="https://avatars.githubusercontent.com/u/12790?v=4" alt="">
-        <div>
-          <h1 id="name">Pravin Paratey</h1>
-          <p class="bio" id="bio">Cofounder @ Kaizan. 23+ years building great products and software engineering teams. 6 startups, ex-Meta.</p>
-          <div class="links">
-            <a href="https://github.com/pravin">GitHub</a>
-            <a href="https://cto.me.uk">cto.me.uk</a>
-            <span style="color:var(--muted)">London</span>
-          </div>
-        </div>
-      </div>
-      <div class="looks" role="group" aria-label="Look">
-        <button data-look="paper">Paper</button>
-        <button data-look="terminal">Terminal</button>
-        <button data-look="blueprint">Blueprint</button>
-      </div>
-    </div>
-    <div class="stats">
-      <div><b id="s-repos">–</b>repositories</div>
-      <div><b id="s-stars">–</b>stars</div>
-      <div><b id="s-langs">–</b>languages</div>
-      <div><b id="s-since">–</b>on GitHub since</div>
-    </div>
+
+<header class="wrap">
+  <div class="label">Pravin Paratey</div>
+  <h1>Things I've made.</h1>
+  <p class="intro">I've been building things on the side since <b>2003</b>: tutorials, tools, themes and, lately, a game. By day I'm a cofounder at Kaizan.</p>
+  <div class="links">
+    <a href="https://cto.me.uk">cto.me.uk ↗</a>
+    <a href="https://github.com/pravin">GitHub ↗</a>
   </div>
 </header>
 
 <main class="wrap">
-  <div class="controls">
-    <input id="q" type="search" placeholder="Search projects…" aria-label="Search projects">
-    <select id="sort" aria-label="Sort">
-      <option value="updated">Recently updated</option>
-      <option value="stars">Most stars</option>
-      <option value="name">Name</option>
-      <option value="created">Oldest first</option>
-    </select>
-    <label><input type="checkbox" id="forks"> Show forks</label>
-  </div>
-  <div class="chips" id="langs"></div>
-  <div class="grid" id="grid"><div class="empty-state">Loading projects…</div></div>
+  <section aria-labelledby="h-feature">
+    <h2 id="h-feature">Play this first</h2>
+    <article class="frame feature">
+      <a class="art" href="https://pravin.github.io/hollowmoon/">
+        <img src="assets/hollowmoon-art.svg" alt="A cracked moon sheds glowing shards over hollowed mountains; a lone adventurer with a lantern stands before a vault door." width="1200" height="800">
+        <div class="title"><span>Hollowmoon</span><em>A classic roguelike · free in your browser</em></div>
+      </a>
+      <div class="body">
+        <div>
+          <p class="hook">Three hundred years ago the moon cracked. Now the Hollowing is spreading from its deepest shard, erasing names first, then shapes, then everything. Ninety days remain.</p>
+          <ul>
+            <li>Make a hero from a cast of original races and professions.</li>
+            <li>Leave a frontier hamlet, cross the wilderness and descend into the Vaults.</li>
+            <li>Turn-based, ASCII, permadeath, with the full keyboard command set veterans know.</li>
+          </ul>
+        </div>
+        <div class="cta">
+          <a class="btn" href="https://pravin.github.io/hollowmoon/">Play Hollowmoon <span>→</span></a>
+          <p class="note">No download, no sign-up.<br>Best on a computer with a keyboard.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="h-picks">
+    <h2 id="h-picks">Selected work</h2>
+    <div class="picks">
+      <div class="frame pick">
+        <h3>Hugo themes</h3>
+        <p>Blog themes for Hugo. The newest three turn your archive into something else: a bookshelf, a transit map, an engineering drawing.</p>
+        <div class="sub">
+          <a href="https://github.com/pravin/hugo-theme-bookshelf">bookshelf</a>
+          <a href="https://github.com/pravin/hugo-theme-transit">transit</a>
+          <a href="https://github.com/pravin/hugo-theme-drafting">drafting</a>
+          <a href="https://github.com/pravin/hugo-theme-prav">prav</a>
+        </div>
+        <div class="meta">HTML/CSS · 2019–2026</div>
+      </div>
+      <a class="frame pick" href="https://github.com/pravin/win32">
+        <h3>Win32 tutorial <span class="arr">↗</span></h3>
+        <p>Learn Windows programming in C by building a paint program, one chapter at a time. Started around 2003, rewritten this year.</p>
+        <div class="meta">C · since c. 2003</div>
+      </a>
+      <a class="frame pick" href="https://github.com/pravin/Yammy">
+        <h3>Yammy <span class="arr">↗</span></h3>
+        <p>Decodes and displays Yahoo! Messenger chat archives. Its users translated it into fifteen languages.</p>
+        <div class="meta">C# · c. 2003–2008</div>
+      </a>
+      <a class="frame pick" href="https://github.com/pravin/cwordle">
+        <h3>cwordle <span class="arr">↗</span></h3>
+        <p>Wordle in your terminal, written in Rust, with hard mode and saved stats.</p>
+        <div class="meta">Rust · 2022</div>
+      </a>
+      <a class="frame pick" href="https://github.com/pravin/deeshell">
+        <h3>deeshell <span class="arr">↗</span></h3>
+        <p>A minimal replacement for the Windows shell (explorer.exe) in C#, written to go with a tutorial.</p>
+        <div class="meta">C# · 2007</div>
+      </a>
+      <a class="frame pick" href="https://github.com/pravin/fix-webcam-linux">
+        <h3>fix-webcam-linux <span class="arr">↗</span></h3>
+        <p>Scripts that make a webcam on Linux look as good as it does on Windows.</p>
+        <div class="meta">Shell · 2025</div>
+      </a>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-rest">
+    <h2 id="h-rest">Everything else</h2>
+    <ul class="list" id="rest"><li><a href="https://github.com/pravin?tab=repositories"><span class="name">Loading…</span></a></li></ul>
+  </section>
 </main>
 
-<footer>
-  <div class="wrap">Built from the GitHub API · refreshed daily · <span id="updated"></span></div>
+<footer class="wrap">
+  <div class="foot">
+    <p class="tally" id="tally">Everything listed here is public. See it all on <a href="https://github.com/pravin">GitHub</a>.</p>
+    <div class="strip-wrap" id="strip-wrap" hidden>
+      <div class="strip" id="strip" role="img"></div>
+      <div class="strip-ends"><span id="s-first"></span><span>commits per year</span><span id="s-last"></span></div>
+    </div>
+  </div>
+  <div class="copy">© Pravin Paratey</div>
 </footer>
 
 <script>
-const USER = "pravin";
-const COLORS = { Rust:"#dea584", Go:"#00ADD8", Python:"#3572A5", C:"#555555", "C++":"#f34b7d", "C#":"#178600",
-  HTML:"#e34c26", CSS:"#663399", Shell:"#89e051", PHP:"#4F5D95", JavaScript:"#f1e05a", TypeScript:"#3178c6", Dart:"#00B4AB" };
-const SELF_PAGES = `${USER}.github.io`.toLowerCase();
-const state = { repos: [], lang: null, q: "", sort: "updated", forks: false };
+// Shown above, so left out of "Everything else".
+const FEATURED = ["hugo-theme-bookshelf", "hugo-theme-transit", "hugo-theme-drafting", "hugo-theme-prav",
+  "win32", "Yammy", "cwordle", "deeshell", "fix-webcam-linux", "pravin.github.io"];
 const $ = id => document.getElementById(id);
-
-// Look switcher (remembered per viewer)
-function setLook(look) {
-  document.documentElement.dataset.look = look;
-  document.querySelectorAll(".looks button").forEach(b => b.setAttribute("aria-pressed", b.dataset.look === look));
-  try { localStorage.setItem("look", look); } catch {}
-}
-document.querySelectorAll(".looks button").forEach(b => b.onclick = () => setLook(b.dataset.look));
-let saved = null; try { saved = localStorage.getItem("look"); } catch {}
-setLook(saved || "paper");
-
-async function load() {
-  // repos.json is generated by the deploy workflow; fall back to the live API when it's missing (e.g. local preview).
-  try {
-    const r = await fetch("repos.json", { cache: "no-cache" });
-    if (r.ok) return r.json();
-  } catch {}
-  const r = await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&type=owner`);
-  return r.json();
-}
-
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
-const ago = iso => {
-  const d = (Date.now() - new Date(iso)) / 864e5;
-  if (d < 1) return "today"; if (d < 2) return "yesterday"; if (d < 30) return `${Math.floor(d)}d ago`;
-  if (d < 365) return `${Math.floor(d / 30)}mo ago`; return `${Math.floor(d / 365)}y ago`;
-};
+const year = r => new Date(r.started_at || r.created_at).getFullYear();
 
-function visible() {
-  const q = state.q.toLowerCase();
-  let list = state.repos.filter(r => (state.forks || !r.fork)
-    && (!state.lang || r.language === state.lang)
-    && (!q || [r.name, r.description, ...(r.topics || [])].join(" ").toLowerCase().includes(q)));
-  const by = { updated: (a, b) => new Date(b.pushed_at) - new Date(a.pushed_at),
-    stars: (a, b) => b.stargazers_count - a.stargazers_count || new Date(b.pushed_at) - new Date(a.pushed_at),
-    name: (a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }),
-    created: (a, b) => new Date(a.created_at) - new Date(b.created_at) }[state.sort];
-  return list.sort(by);
-}
+async function json(url) { try { const r = await fetch(url, { cache: "no-cache" }); return r.ok ? r.json() : null; } catch { return null; } }
 
-function render() {
-  const list = visible();
-  $("grid").innerHTML = list.length ? list.map(r => {
-    const home = r.homepage && !/github\.com/.test(r.homepage) ? r.homepage : null;
-    return `<a class="card" href="${esc(r.html_url)}">
-      <h2>${esc(r.name)}</h2>
-      <p class="${r.description ? "" : "empty"}">${esc(r.description || "No description yet.")}</p>
-      ${(r.topics || []).length ? `<div class="topics">${r.topics.slice(0, 5).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
-      <div class="meta">
-        ${r.language ? `<span><span class="dot" style="background:${COLORS[r.language] || "#999"}"></span>${esc(r.language)}</span>` : ""}
-        ${r.stargazers_count ? `<span>★ ${r.stargazers_count}</span>` : ""}
-        <span>${ago(r.pushed_at)}</span>
-        ${r.fork ? `<span class="tag fork">fork</span>` : ""}
-        ${r.archived ? `<span class="tag">archived</span>` : ""}
-        ${home ? `<span class="home" data-href="${esc(home)}">${esc(home.replace(/^https?:\/\//, "").replace(/\/$/, ""))} ↗</span>` : ""}
-      </div>
-    </a>`;
-  }).join("") : `<div class="empty-state">No projects match.</div>`;
-}
-
-function renderLangs() {
-  const counts = {};
-  state.repos.filter(r => state.forks || !r.fork).forEach(r => r.language && (counts[r.language] = (counts[r.language] || 0) + 1));
-  const langs = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-  if (state.lang && !counts[state.lang]) state.lang = null;
-  $("langs").innerHTML = [`<button class="chip" data-lang="" aria-pressed="${!state.lang}">All</button>`,
-    ...langs.map(([l, n]) => `<button class="chip" data-lang="${esc(l)}" aria-pressed="${state.lang === l}">${esc(l)} · ${n}</button>`)].join("");
-}
-
-$("langs").onclick = e => { const b = e.target.closest(".chip"); if (!b) return; state.lang = b.dataset.lang || null; renderLangs(); render(); };
-$("q").oninput = e => { state.q = e.target.value; render(); };
-$("sort").onchange = e => { state.sort = e.target.value; render(); };
-$("forks").onchange = e => { state.forks = e.target.checked; renderLangs(); render(); };
-// Homepage links live inside the card link, so open them by hand.
-$("grid").onclick = e => { const h = e.target.closest(".home"); if (h) { e.preventDefault(); window.open(h.dataset.href, "_blank", "noopener"); } };
-
-load().then(data => {
-  if (!Array.isArray(data)) throw new Error("bad data");
-  state.repos = data.filter(r => !r.private && r.name.toLowerCase() !== SELF_PAGES);
-  const own = state.repos.filter(r => !r.fork);
-  $("s-repos").textContent = own.length;
-  $("s-stars").textContent = own.reduce((s, r) => s + r.stargazers_count, 0);
-  $("s-langs").textContent = new Set(own.map(r => r.language).filter(Boolean)).size;
-  $("s-since").textContent = Math.min(...own.map(r => new Date(r.created_at).getFullYear()));
-  $("updated").textContent = "last pushed " + ago(own.reduce((m, r) => r.pushed_at > m ? r.pushed_at : m, ""));
-  renderLangs(); render();
-}).catch(() => {
-  $("grid").innerHTML = `<div class="empty-state">Couldn't load projects. See them on <a href="https://github.com/${USER}">GitHub</a>.</div>`;
+Promise.all([
+  // repos.json comes from the deploy workflow; fall back to the live API for local previews.
+  json("repos.json").then(d => d || json("https://api.github.com/users/pravin/repos?per_page=100&type=owner")),
+  json("stats.json"),
+]).then(([repos, stats]) => {
+  if (Array.isArray(repos)) {
+    const rest = repos.filter(r => !r.fork && !r.private && !FEATURED.includes(r.name))
+      .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+    $("rest").innerHTML = rest.map(r => `<li><a href="${esc(r.html_url)}">
+      <span class="name">${esc(r.name)}</span>
+      <span class="desc">${esc(r.description || "")}</span>
+      <span class="yr">${year(r)}</span></a></li>`).join("");
+  }
+  if (stats) {
+    const pub = Array.isArray(repos) ? repos.filter(r => !r.fork && !r.private && r.name !== "pravin.github.io").length : stats.repos.public;
+    const by = stats.by_year, first = +Object.keys(by)[0], last = new Date().getFullYear();
+    $("tally").innerHTML = `<b>${stats.totals.commits.toLocaleString()}</b> commits since ${first}<br>`
+      + `<b>${pub}</b> public projects, all listed here · <b>${stats.repos.private}</b> private ones not shown`;
+    const max = Math.max(...Object.values(by).map(d => d.commits));
+    let bars = "";
+    for (let y = first; y <= last; y++) {
+      const c = (by[y] || {}).commits || 0;
+      // Square-root scale so quiet years still show next to busy ones.
+      bars += `<i class="${c ? "" : "none"}" style="height:${c ? Math.max(6, Math.sqrt(c / max) * 100) : 4}%" title="${y}: ${c} commit${c === 1 ? "" : "s"}"></i>`;
+    }
+    $("strip").innerHTML = bars;
+    $("strip").setAttribute("aria-label", `Commits per year from ${first} to ${last}`);
+    $("s-first").textContent = first; $("s-last").textContent = last;
+    $("strip-wrap").hidden = false;
+  }
 });
 </script>
 </body>
