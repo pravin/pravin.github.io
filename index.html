@@ -91,7 +91,9 @@ h1 { font: 500 clamp(38px, 7vw, 68px)/1.02 var(--mono); letter-spacing: -.04em; 
 .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 28px -8px rgba(232,163,61,.6); }
 .btn span { transition: transform .15s; }
 .btn:hover span { transform: translateX(3px); }
-.note { font: 12.5px/1.6 var(--mono); color: var(--ink3); margin: 0; }
+.btn.ghost { background: transparent; color: var(--amber); border: 1px solid var(--amber); padding: 13px 21px; }
+.btn.ghost:hover { background: var(--amber-dim); box-shadow: none; }
+.note { font: 12.5px/1.6 var(--mono); color: var(--ink3); margin: 0; max-width: 34ch; }
 @media (max-width: 760px) {
   .art { aspect-ratio: 4 / 3; }
   .art .title { padding: 20px 20px 50px; }
@@ -111,8 +113,9 @@ a.pick:hover h3 .arr { color: var(--amber); transform: translate(2px,-2px); }
 .pick .sub { display: flex; flex-wrap: wrap; gap: 6px 14px; font: 13px var(--mono); }
 .pick .sub a { color: var(--amber); text-decoration: none; }
 .pick .sub a:hover { text-decoration: underline; }
+.picks.two { grid-template-columns: 1fr 1fr; }
 @media (max-width: 900px) { .picks { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .picks { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .picks, .picks.two { grid-template-columns: 1fr; } }
 
 /* Everything else */
 .list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
@@ -176,10 +179,27 @@ footer .foot { border-top: 1px solid var(--line); padding-top: 28px; }
         </div>
         <div class="cta">
           <a class="btn" href="https://pravin.github.io/hollowmoon/">Play Hollowmoon <span>→</span></a>
-          <p class="note">No download, no sign-up.<br>Best on a computer with a keyboard.</p>
+          <a class="btn ghost" href="https://pravin.github.io/hollowmoon/daily/">☾ Today's Daily <span>→</span></a>
+          <p class="note">No download, no sign-up. The Daily is one short descent a day, the same for everyone, and works on phones.</p>
         </div>
       </div>
     </article>
+  </section>
+
+  <section aria-labelledby="h-yours">
+    <h2 id="h-yours">Try it on your GitHub</h2>
+    <div class="picks two">
+      <a class="frame pick" href="https://pravin.github.io/lifelines/">
+        <h3>Lifelines <span class="arr">↗</span></h3>
+        <p>Type a GitHub username and get a poster of every project drawn as a line, from first commit to last push.</p>
+        <div class="meta">Shareable poster · any GitHub user</div>
+      </a>
+      <a class="frame pick" href="https://pravin.github.io/charsheet/">
+        <h3>Character sheet <span class="arr">↗</span></h3>
+        <p>What would your GitHub be in a roguelike? Get your race, profession, stats and gear, then play as that hero in Hollowmoon.</p>
+        <div class="meta">Shareable card · any GitHub user</div>
+      </a>
+    </div>
   </section>
 
   <section aria-labelledby="h-picks">
@@ -244,7 +264,7 @@ footer .foot { border-top: 1px solid var(--line); padding-top: 28px; }
 <script>
 // Shown above, so left out of "Everything else".
 const FEATURED = ["hugo-theme-bookshelf", "hugo-theme-transit", "hugo-theme-drafting", "hugo-theme-prav",
-  "win32", "Yammy", "cwordle", "deeshell", "fix-webcam-linux", "pravin.github.io"];
+  "win32", "Yammy", "cwordle", "deeshell", "fix-webcam-linux", "pravin.github.io", "lifelines", "charsheet"];
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 const year = r => new Date(r.started_at || r.created_at).getFullYear();
