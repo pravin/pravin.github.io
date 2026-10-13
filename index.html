@@ -82,7 +82,8 @@ h1 { font: 500 clamp(38px, 7vw, 68px)/1.02 var(--mono); letter-spacing: -.04em; 
 .feature .hook { margin: 0 0 16px; font-size: 18px; line-height: 1.6; }
 .feature ul { margin: 0; padding: 0; list-style: none; color: var(--ink2); font-size: 15px; }
 .feature li { padding-left: 22px; position: relative; margin: 6px 0; }
-.feature li::before { content: "@"; position: absolute; left: 0; font: 600 13px/1.7 var(--mono); color: var(--amber); }
+.feature.ebb { --bullet: "≈"; }
+.feature li::before { content: var(--bullet, "@"); position: absolute; left: 0; font: 600 13px/1.7 var(--mono); color: var(--amber); }
 .feature .cta { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 12px; border-left: 1px solid var(--line); padding-left: 32px; }
 .btn {
   display: inline-flex; align-items: center; gap: 10px; background: var(--amber); color: var(--ground); text-decoration: none;
@@ -114,7 +115,6 @@ a.pick:hover h3 .arr { color: var(--amber); transform: translate(2px,-2px); }
 .pick .sub a { color: var(--amber); text-decoration: none; }
 .pick .sub a:hover { text-decoration: underline; }
 .picks.two { grid-template-columns: 1fr 1fr; }
-.picks.one { grid-template-columns: 1fr; }
 @media (max-width: 900px) { .picks { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .picks, .picks.two { grid-template-columns: 1fr; } }
 
@@ -189,13 +189,27 @@ footer .foot { border-top: 1px solid var(--line); padding-top: 28px; }
 
   <section aria-labelledby="h-ebb">
     <h2 id="h-ebb">Also playable</h2>
-    <div class="picks one">
-      <a class="frame pick" href="https://pravin.github.io/ebb/">
-        <h3>EBB <span class="arr">↗</span></h3>
-        <p>A turn-based strategy game where the sea rises every turn for 100 turns. Found cities, build sea walls, evacuate the ones that will drown, and be on high ground when the tide stops.</p>
-        <div class="meta">Browser and phone · installs as an app · works offline</div>
+    <article class="frame feature ebb">
+      <a class="art" href="https://pravin.github.io/ebb/">
+        <img src="assets/ebb-art.svg" alt="A hex-map island in a dark sea. Its low ground has drowned, the shore is hatched where the tide comes next, and a walled city holds the high ground." width="1200" height="800">
+        <div class="title"><span>EBB</span><em>A rising-sea strategy game · free in your browser</em></div>
       </a>
-    </div>
+      <div class="body">
+        <div>
+          <p class="hook">The sea rises every turn, on a schedule you can read. After a hundred turns only a few peaks are left. Be standing on one.</p>
+          <ul>
+            <li>Found cities, build sea walls, and evacuate the ones that will drown.</li>
+            <li>Research four branches, then trade with, treaty or fight three rival powers.</li>
+            <li>Win by launching the Ark, holding the last land, or simply outlasting everyone.</li>
+          </ul>
+        </div>
+        <div class="cta">
+          <a class="btn" href="https://pravin.github.io/ebb/">Play EBB <span>→</span></a>
+          <a class="btn ghost" href="https://github.com/pravin/ebb">Source <span>→</span></a>
+          <p class="note">No download, no sign-up. Plays on phones, installs to your home screen, and works offline.</p>
+        </div>
+      </div>
+    </article>
   </section>
 
   <section aria-labelledby="h-yours">
