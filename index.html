@@ -18,9 +18,9 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVSKNV76Z7"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pravin Paratey — Things I've made</title>
-<meta name="description" content="Side projects by Pravin Paratey since 2003, starting with Hollowmoon, a classic roguelike you can play in your browser.">
+<meta name="description" content="Side projects by Pravin Paratey since 2003, including two games you can play in your browser: Hollowmoon, a classic roguelike, and EBB, a rising-sea strategy game.">
 <meta property="og:title" content="Pravin Paratey — Things I've made">
-<meta property="og:description" content="Side projects since 2003. Start with Hollowmoon, a classic roguelike you can play in your browser.">
+<meta property="og:description" content="Side projects since 2003, including two browser games: Hollowmoon, a classic roguelike, and EBB, a rising-sea strategy game.">
 <meta property="og:image" content="https://pravin.github.io/hollowmoon/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230b1220'/><path d='M7 22 L13 10 L19 18 L25 8' stroke='%23e8a33d' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
@@ -51,6 +51,7 @@ a { color: inherit; }
 .label { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
 section { margin-top: 72px; }
 h2 { font: 500 13px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); margin: 0 0 20px; display: flex; align-items: center; gap: 14px; }
+main > section:first-child { margin-top: 40px; }
 h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
 /* Schematic frame with corner ticks, as on cto.me.uk */
@@ -60,11 +61,11 @@ h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .frame::after { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; }
 
 /* Intro */
-header.wrap { padding-top: 88px; }
-h1 { font: 500 clamp(38px, 7vw, 68px)/1.02 var(--mono); letter-spacing: -.04em; margin: 16px 0 20px; }
-.intro { font-size: clamp(17px, 2.2vw, 20px); color: var(--ink2); max-width: 42ch; margin: 0; }
+header.wrap { padding-top: 36px; }
+h1 { font: 500 clamp(30px, 4.6vw, 44px)/1.05 var(--mono); letter-spacing: -.04em; margin: 10px 0 12px; }
+.intro { font-size: clamp(16px, 1.8vw, 18px); color: var(--ink2); max-width: 58ch; margin: 0; }
 .intro b { color: var(--ink); font-weight: 500; }
-.links { display: flex; gap: 22px; margin-top: 22px; font: 14px var(--mono); flex-wrap: wrap; }
+.links { display: flex; gap: 22px; margin-top: 12px; font: 14px var(--mono); flex-wrap: wrap; }
 .links a { color: var(--amber); text-decoration: none; border-bottom: 1px solid transparent; }
 .links a:hover { border-bottom-color: var(--amber); }
 
@@ -101,6 +102,23 @@ h1 { font: 500 clamp(38px, 7vw, 68px)/1.02 var(--mono); letter-spacing: -.04em; 
   .feature .body { grid-template-columns: 1fr; gap: 22px; padding: 22px 20px 24px; }
   .feature .cta { border-left: 0; padding-left: 0; }
 }
+
+/* Two games side by side */
+.games { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.games .feature { display: flex; flex-direction: column; }
+.games .art { aspect-ratio: 16 / 9; }
+.games .art .title { padding: 20px 22px 50px; }
+.games .art .title span { font-size: clamp(26px, 3vw, 34px); }
+.games .art .title em { font-size: 11.5px; margin-top: 8px; }
+.games .feature .body { display: flex; flex-direction: column; gap: 14px; flex: 1; padding: 18px 22px 22px; }
+.games .feature .hook { font-size: 15.5px; line-height: 1.55; margin: 0 0 8px; }
+.games .feature ul { font-size: 14px; }
+.games .feature li { margin: 3px 0; }
+.games .feature .cta { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 10px; margin-top: auto; border-left: 0; padding-left: 0; }
+.games .btn { font-size: 14px; padding: 11px 16px; }
+.games .btn.ghost { padding: 10px 15px; }
+.games .note { max-width: none; flex-basis: 100%; }
+@media (max-width: 760px) { .games { grid-template-columns: 1fr; } }
 
 /* Selected work */
 .picks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -163,53 +181,49 @@ footer .foot { border-top: 1px solid var(--line); padding-top: 28px; }
 
 <main class="wrap">
   <section aria-labelledby="h-feature">
-    <h2 id="h-feature">Play this first</h2>
-    <article class="frame feature">
-      <a class="art" href="https://pravin.github.io/hollowmoon/">
-        <img src="assets/hollowmoon-art.svg" alt="A cracked moon sheds glowing shards over hollowed mountains; a lone adventurer with a lantern stands before a vault door." width="1200" height="800">
-        <div class="title"><span>Hollowmoon</span><em>A classic roguelike · free in your browser</em></div>
-      </a>
-      <div class="body">
-        <div>
-          <p class="hook">Three hundred years ago the moon cracked. Now the Hollowing is spreading from its deepest shard, erasing names first, then shapes, then everything. Ninety days remain.</p>
-          <ul>
-            <li>Make a hero from a cast of original races and professions.</li>
-            <li>Leave a frontier hamlet, cross the wilderness and descend into the Vaults.</li>
-            <li>Turn-based, ASCII, permadeath, with the full keyboard command set veterans know.</li>
-          </ul>
+    <h2 id="h-feature">Play in your browser</h2>
+    <div class="games">
+      <article class="frame feature">
+        <a class="art" href="https://pravin.github.io/hollowmoon/">
+          <img src="assets/hollowmoon-art.svg" alt="A cracked moon sheds glowing shards over hollowed mountains; a lone adventurer with a lantern stands before a vault door." width="1200" height="800">
+          <div class="title"><span>Hollowmoon</span><em>A classic roguelike</em></div>
+        </a>
+        <div class="body">
+          <div>
+            <p class="hook">The moon cracked three hundred years ago, and the Hollowing is spreading from its deepest shard. Ninety days remain.</p>
+            <ul>
+              <li>Pick a race and profession, leave the hamlet, descend into the Vaults.</li>
+              <li>Turn-based, ASCII, permadeath, full keyboard command set.</li>
+            </ul>
+          </div>
+          <div class="cta">
+            <a class="btn" href="https://pravin.github.io/hollowmoon/">Play Hollowmoon <span>→</span></a>
+            <a class="btn ghost" href="https://pravin.github.io/hollowmoon/daily/">☾ Daily <span>→</span></a>
+            <p class="note">The Daily is one short descent, the same for everyone, and works on phones.</p>
+          </div>
         </div>
-        <div class="cta">
-          <a class="btn" href="https://pravin.github.io/hollowmoon/">Play Hollowmoon <span>→</span></a>
-          <a class="btn ghost" href="https://pravin.github.io/hollowmoon/daily/">☾ Today's Daily <span>→</span></a>
-          <p class="note">No download, no sign-up. The Daily is one short descent a day, the same for everyone, and works on phones.</p>
+      </article>
+      <article class="frame feature ebb">
+        <a class="art" href="https://pravin.github.io/ebb/">
+          <img src="assets/ebb-art.svg" alt="A hex-map island in a dark sea. Its low ground has drowned, the shore is hatched where the tide comes next, and a walled city holds the high ground." width="1200" height="800">
+          <div class="title"><span>EBB</span><em>A rising-sea strategy game</em></div>
+        </a>
+        <div class="body">
+          <div>
+            <p class="hook">The sea rises every turn, on a schedule you can read. After a hundred turns only a few peaks are left. Be standing on one.</p>
+            <ul>
+              <li>Found cities, build sea walls, evacuate the ones that will drown.</li>
+              <li>Trade, treaty or fight three rivals, or launch the Ark.</li>
+            </ul>
+          </div>
+          <div class="cta">
+            <a class="btn" href="https://pravin.github.io/ebb/">Play EBB <span>→</span></a>
+            <a class="btn ghost" href="https://github.com/pravin/ebb">Source <span>→</span></a>
+            <p class="note">Plays on phones, installs to your home screen, works offline.</p>
+          </div>
         </div>
-      </div>
-    </article>
-  </section>
-
-  <section aria-labelledby="h-ebb">
-    <h2 id="h-ebb">Also playable</h2>
-    <article class="frame feature ebb">
-      <a class="art" href="https://pravin.github.io/ebb/">
-        <img src="assets/ebb-art.svg" alt="A hex-map island in a dark sea. Its low ground has drowned, the shore is hatched where the tide comes next, and a walled city holds the high ground." width="1200" height="800">
-        <div class="title"><span>EBB</span><em>A rising-sea strategy game · free in your browser</em></div>
-      </a>
-      <div class="body">
-        <div>
-          <p class="hook">The sea rises every turn, on a schedule you can read. After a hundred turns only a few peaks are left. Be standing on one.</p>
-          <ul>
-            <li>Found cities, build sea walls, and evacuate the ones that will drown.</li>
-            <li>Research four branches, then trade with, treaty or fight three rival powers.</li>
-            <li>Win by launching the Ark, holding the last land, or simply outlasting everyone.</li>
-          </ul>
-        </div>
-        <div class="cta">
-          <a class="btn" href="https://pravin.github.io/ebb/">Play EBB <span>→</span></a>
-          <a class="btn ghost" href="https://github.com/pravin/ebb">Source <span>→</span></a>
-          <p class="note">No download, no sign-up. Plays on phones, installs to your home screen, and works offline.</p>
-        </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </section>
 
   <section aria-labelledby="h-yours">
