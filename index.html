@@ -114,6 +114,7 @@ a.pick:hover h3 .arr { color: var(--amber); transform: translate(2px,-2px); }
 .pick .sub a { color: var(--amber); text-decoration: none; }
 .pick .sub a:hover { text-decoration: underline; }
 .picks.two { grid-template-columns: 1fr 1fr; }
+.picks.one { grid-template-columns: 1fr; }
 @media (max-width: 900px) { .picks { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .picks, .picks.two { grid-template-columns: 1fr; } }
 
@@ -153,7 +154,7 @@ footer .foot { border-top: 1px solid var(--line); padding-top: 28px; }
 <header class="wrap">
   <div class="label">Pravin Paratey</div>
   <h1>Things I've made.</h1>
-  <p class="intro">I've been building things on the side since <b>2003</b>: tutorials, tools, themes and, lately, a game. By day I'm a cofounder at Kaizan.</p>
+  <p class="intro">I've been building things on the side since <b>2003</b>: tutorials, tools, themes and, lately, games. By day I'm a cofounder at Kaizan.</p>
   <div class="links">
     <a href="https://cto.me.uk">cto.me.uk ↗</a>
     <a href="https://github.com/pravin">GitHub ↗</a>
@@ -184,6 +185,17 @@ footer .foot { border-top: 1px solid var(--line); padding-top: 28px; }
         </div>
       </div>
     </article>
+  </section>
+
+  <section aria-labelledby="h-ebb">
+    <h2 id="h-ebb">Also playable</h2>
+    <div class="picks one">
+      <a class="frame pick" href="https://pravin.github.io/ebb/">
+        <h3>EBB <span class="arr">↗</span></h3>
+        <p>A turn-based strategy game where the sea rises every turn for 100 turns. Found cities, build sea walls, evacuate the ones that will drown, and be on high ground when the tide stops.</p>
+        <div class="meta">Browser and phone · installs as an app · works offline</div>
+      </a>
+    </div>
   </section>
 
   <section aria-labelledby="h-yours">
@@ -264,7 +276,7 @@ footer .foot { border-top: 1px solid var(--line); padding-top: 28px; }
 <script>
 // Shown above, so left out of "Everything else".
 const FEATURED = ["hugo-theme-bookshelf", "hugo-theme-transit", "hugo-theme-drafting", "hugo-theme-prav",
-  "win32", "Yammy", "cwordle", "deeshell", "fix-webcam-linux", "pravin.github.io", "lifelines", "charsheet"];
+  "win32", "Yammy", "cwordle", "deeshell", "fix-webcam-linux", "pravin.github.io", "lifelines", "charsheet", "ebb"];
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 const year = r => new Date(r.started_at || r.created_at).getFullYear();
