@@ -244,6 +244,41 @@ footer .foot { border-top: 1px solid var(--line); padding-top: 28px; }
     </div>
   </section>
 
+  <section aria-labelledby="h-tools">
+    <h2 id="h-tools">Tools and apps</h2>
+    <div class="picks">
+      <a class="frame pick" href="https://pravin.github.io/prettymaids/">
+        <h3>prettymaids <span class="arr">↗</span></h3>
+        <p>Make Mermaid diagrams look good: modern themes, SVG post-processing, a CLI and a live playground.</p>
+        <div class="meta">JavaScript · 2026 · <a href="https://pravin.github.io/prettymaids/gallery/">gallery</a></div>
+      </a>
+      <a class="frame pick" href="https://github.com/pravin/adom-mac/releases/latest">
+        <h3>ADOM for Mac <span class="arr">↗</span></h3>
+        <p>A native Apple Silicon build of ADOM 3.3.3, the classic roguelike. No emulator or Wine, distributed with its authors' permission.</p>
+        <div class="meta">macOS · binary releases · 2026</div>
+      </a>
+      <a class="frame pick" href="https://github.com/pravin/roomy">
+        <h3>Roomy <span class="arr">↗</span></h3>
+        <p>A fast, cross-platform disk space analyser and developer junk cleaner, plus the 20-chapter Rust and Tauri tutorial that builds it.</p>
+        <div class="meta">Rust · Tauri · 2026</div>
+      </a>
+      <a class="frame pick" href="https://github.com/pravin/letterlock">
+        <h3>letterlock <span class="arr">↗</span></h3>
+        <p>A free five-letter word-guessing game for the terminal. Windows, macOS and Linux.</p>
+        <div class="meta">Terminal game · 2026</div>
+      </a>
+      <a class="frame pick" href="https://github.com/pravin/letterlift">
+        <h3>letterlift <span class="arr">↗</span></h3>
+        <p>A free word-ladder puzzle for the terminal: change one letter at a time to reach the goal.</p>
+        <div class="meta">Terminal game · 2026</div>
+      </a>
+      <a class="frame pick" href="https://github.com/pravin/Ukulele-Tuner">
+        <h3>Ukulele Tuner <span class="arr">↗</span></h3>
+        <p>Tune your ukulele from the terminal.</p>
+        <div class="meta">Terminal · 2026</div>
+      </a>
+    </div>
+  </section>
   <section aria-labelledby="h-picks">
     <h2 id="h-picks">Selected work</h2>
     <div class="picks">
@@ -306,7 +341,10 @@ footer .foot { border-top: 1px solid var(--line); padding-top: 28px; }
 <script>
 // Shown above, so left out of "Everything else".
 const FEATURED = ["hugo-theme-bookshelf", "hugo-theme-transit", "hugo-theme-drafting", "hugo-theme-prav",
-  "win32", "Yammy", "cwordle", "deeshell", "fix-webcam-linux", "pravin.github.io", "lifelines", "charsheet", "ebb"];
+  "win32", "Yammy", "cwordle", "deeshell", "fix-webcam-linux", "pravin.github.io", "lifelines", "charsheet", "ebb",
+  "prettymaids", "adom-mac", "roomy", "letterlock", "letterlift", "Ukulele-Tuner"];
+// Never shown (they are websites, not projects). Keep in sync with EXCLUDE in scripts/build_data.py.
+const EXCLUDED = ["cto-me-uk", "adaaf"];
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 const year = r => new Date(r.started_at || r.created_at).getFullYear();
@@ -319,7 +357,7 @@ Promise.all([
   json("stats.json"),
 ]).then(([repos, stats]) => {
   if (Array.isArray(repos)) {
-    const rest = repos.filter(r => !r.fork && !r.private && !FEATURED.includes(r.name))
+    const rest = repos.filter(r => !r.fork && !r.private && !FEATURED.includes(r.name) && !EXCLUDED.includes(r.name))
       .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
     $("rest").innerHTML = rest.map(r => `<li><a href="${esc(r.html_url)}">
       <span class="name">${esc(r.name)}</span>
@@ -327,7 +365,7 @@ Promise.all([
       <span class="yr">${year(r)}</span></a></li>`).join("");
   }
   if (stats) {
-    const pub = Array.isArray(repos) ? repos.filter(r => !r.fork && !r.private && r.name !== "pravin.github.io").length : stats.repos.public;
+    const pub = Array.isArray(repos) ? repos.filter(r => !r.fork && !r.private && r.name !== "pravin.github.io" && !EXCLUDED.includes(r.name)).length : stats.repos.public;
     const by = stats.by_year, first = +Object.keys(by)[0], last = new Date().getFullYear();
     $("tally").innerHTML = `<b>${stats.totals.commits.toLocaleString()}</b> commits since ${first}<br>`
       + `<b>${pub}</b> public projects, all listed here · <b>${stats.repos.private}</b> private ones not shown`;

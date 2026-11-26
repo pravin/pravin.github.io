@@ -10,6 +10,10 @@ TOKEN = os.environ.get("GITHUB_TOKEN")
 # Projects that predate GitHub: when work actually started (approximate).
 STARTED = {"Yammy": "2003-01-01T00:00:00Z", "win32": "2003-01-01T00:00:00Z"}
 
+# Public repos that must never appear on the site: they are websites, not projects for public use.
+# Do not remove entries, and keep EXCLUDED in index.html in sync.
+EXCLUDE = {"cto-me-uk", "adaaf"}
+
 
 def get(path):
     req = urllib.request.Request(API + path, headers={"Accept": "application/vnd.github+json"})
@@ -35,7 +39,7 @@ def main(user, out):
         page += 1
     result = []
     for r in repos:
-        if r["private"] or r["name"].lower() == f"{user}.github.io".lower():
+        if r["private"] or r["name"].lower() == f"{user}.github.io".lower() or r["name"].lower() in EXCLUDE:
             continue
         item = {k: r[k] for k in ("name", "html_url", "description", "homepage", "language", "topics", "fork",
                                   "archived", "stargazers_count", "forks_count", "created_at", "pushed_at", "license")}

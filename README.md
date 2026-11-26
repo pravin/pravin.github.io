@@ -9,3 +9,8 @@ My projects page, live at https://pravin.github.io. Two browser games (Hollowmoo
 - `.github/workflows/deploy.yml`: builds the data and deploys to GitHub Pages on every push and once a day. Private-repo stats refresh only if a `STATS_TOKEN` secret is set; otherwise the committed `stats.json` is used.
 
 Local preview: `python3 -m http.server` and open http://localhost:8000. To refresh the commit stats by hand: `GITHUB_TOKEN=$(gh auth token) python3 scripts/build_stats.py pravin stats.json`.
+
+## Excluded repos (do not bring back)
+
+`cto-me-uk` and `adaaf` are public repos but they are websites, not projects for public use. They are excluded in `EXCLUDE` in `scripts/build_data.py` and `EXCLUDED` in `index.html`. Any future rebuild or redesign of this site must keep them off, including the "Everything else" list and the project count.
+
